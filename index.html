@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#F7F7F3" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#14161B" media="(prefers-color-scheme: dark)">
 <script>document.documentElement.classList.add("js");</script>
@@ -115,7 +115,12 @@
   }
   .skip-link:focus { left: 0; }
 
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-left: max(24px, env(safe-area-inset-left));
+    padding-right: max(24px, env(safe-area-inset-right));
+  }
 
   .eyebrow {
     font-family: var(--mono);
@@ -134,12 +139,15 @@
     background: color-mix(in srgb, var(--paper) 92%, transparent);
     backdrop-filter: blur(8px);
     z-index: 50;
+    padding-top: env(safe-area-inset-top);
   }
   .nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 16px 24px;
+    padding-left: max(24px, env(safe-area-inset-left));
+    padding-right: max(24px, env(safe-area-inset-right));
     max-width: 1120px;
     margin: 0 auto;
   }
@@ -362,6 +370,33 @@
     color: var(--muted);
   }
   .tag.domain { border-color: var(--cobalt); color: var(--cobalt); }
+
+  /* deployment status pills */
+  .stat-pill {
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.09em; text-transform: uppercase;
+    padding: 3px 9px; display: inline-flex; align-items: center; gap: 6px;
+    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;
+  }
+  .stat-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex: none; }
+  .stat-pill.live { color: var(--live); border-color: var(--live); background: color-mix(in srgb, var(--live) 12%, transparent); }
+  .stat-pill.source { color: var(--cobalt); border-color: var(--cobalt); }
+  .stat-pill.case { color: var(--muted); border-color: var(--line); }
+  .stat-pill.live .dot { animation: livepulse 2s ease-in-out infinite; }
+  @keyframes livepulse {
+    0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--live) 55%, transparent); }
+    70% { box-shadow: 0 0 0 5px transparent; }
+  }
+  .work-links a.visit {
+    color: var(--live); border: 1px solid var(--live);
+    padding: 5px 12px; border-bottom: 1px solid var(--live);
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+  .work-links a.visit:hover { background: var(--live); color: var(--paper); border-bottom-color: var(--live); }
+
+  /* work status legend */
+  .work-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 0 0 30px; }
+  .work-legend .lg-txt { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-right: 10px; }
   .work-row h3 { font-family: var(--sans); font-weight: 600; font-size: 21px; }
   .work-row h3 a { text-decoration: none; }
   .work-row h3 a:hover { color: var(--cobalt); }
@@ -584,7 +619,7 @@
 
   footer {
     border-top: 1px solid var(--line);
-    padding: 18px 0 26px;
+    padding: 18px 0 max(26px, calc(env(safe-area-inset-bottom) + 20px));
   }
   footer .wrap {
     display: flex;
@@ -617,8 +652,8 @@
   .figlist { border: 1px solid var(--line); margin-bottom: 44px; }
   .figlist a {
     display: grid;
-    grid-template-columns: 74px 1fr auto auto;
-    gap: 16px;
+    grid-template-columns: 60px 1fr auto auto auto;
+    gap: 14px;
     align-items: baseline;
     padding: 8px 14px;
     border-top: 1px solid var(--line-soft);
@@ -632,16 +667,21 @@
   .figlist a:hover .fl-title { color: var(--cobalt); }
   .fl-title { color: var(--ink); font-family: var(--sans); font-size: 14.5px; font-weight: 500; }
   .fl-met { font-variant-numeric: tabular-nums; }
+  .fl-status { font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 5px; }
+  .fl-status .d { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .fl-status.live { color: var(--live); }
+  .fl-status.source { color: var(--cobalt); }
+  .fl-status.case { color: var(--muted); }
   article[id] { scroll-margin-top: 84px; }
   @media (max-width: 640px) {
-    .figlist a { grid-template-columns: 60px 1fr auto; }
-    .figlist .fl-dom { display: none; }
+    .figlist a { grid-template-columns: 50px 1fr auto; gap: 10px; }
+    .figlist .fl-dom, .figlist .fl-met { display: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .reveal, .hs { opacity: 1 !important; transform: none !important; transition: none !important; }
-    .sv-flow, .sv-pulse, .sv-blink { animation: none !important; }
+    .sv-flow, .sv-pulse, .sv-blink, .stat-pill.live .dot { animation: none !important; }
     .btn::before { transition: none; }
     .preview { transition: none; }
   }
@@ -742,23 +782,29 @@
         <h2>Ten projects, five domains</h2>
       </div>
 
-      <nav class="figlist reveal" aria-label="List of figures">
-        <a href="#fig-01"><span>fig. 01</span><span class="fl-title">Small Language Models in Agentic RAG</span><span class="fl-dom">research</span><span class="fl-met">κ 0.65</span></a>
-        <a href="#fig-02"><span>fig. 02</span><span class="fl-title">reccs.co</span><span class="fl-dom">platform</span><span class="fl-met">14.1M</span></a>
-        <a href="#fig-03"><span>fig. 03</span><span class="fl-title">ConnectMe</span><span class="fl-dom">android</span><span class="fl-met">Compose</span></a>
-        <a href="#fig-04"><span>fig. 04</span><span class="fl-title">ComfyBuy</span><span class="fl-dom">android</span><span class="fl-met">Compose</span></a>
-        <a href="#fig-05"><span>fig. 05</span><span class="fl-title">Banking Transactions API</span><span class="fl-dom">backend</span><span class="fl-met">ACID</span></a>
-        <a href="#fig-06"><span>fig. 06</span><span class="fl-title">E-Commerce Backend</span><span class="fl-dom">backend</span><span class="fl-met">JWT</span></a>
-        <a href="#fig-07"><span>fig. 07</span><span class="fl-title">MedScholar</span><span class="fl-dom">platform</span><span class="fl-met">RAG</span></a>
-        <a href="#fig-08"><span>fig. 08</span><span class="fl-title">IndonesiaCompliance</span><span class="fl-dom">platform</span><span class="fl-met">1,000+</span></a>
-        <a href="#fig-09"><span>fig. 09</span><span class="fl-title">Agentic Film Studio</span><span class="fl-dom">generative</span><span class="fl-met">5 agents</span></a>
-        <a href="#fig-10"><span>fig. 10</span><span class="fl-title">From-Scratch Architectures</span><span class="fl-dom">deep learning</span><span class="fl-met">97.2%</span></a>
+      <div class="work-legend reveal">
+        <span class="stat-pill live"><span class="dot"></span>Live</span><span class="lg-txt">deployed, click to visit</span>
+        <span class="stat-pill source">Source</span><span class="lg-txt">code on GitHub</span>
+        <span class="stat-pill case">Case study</span><span class="lg-txt">private build</span>
+      </div>
+
+      <nav class="figlist reveal" aria-label="List of figures, with deployment status">
+        <a href="#fig-01"><span>fig. 01</span><span class="fl-title">Small Language Models in Agentic RAG</span><span class="fl-status source">source</span><span class="fl-dom">research</span><span class="fl-met">κ 0.65</span></a>
+        <a href="#fig-02"><span>fig. 02</span><span class="fl-title">reccs.co</span><span class="fl-status live"><span class="d"></span>live</span><span class="fl-dom">platform</span><span class="fl-met">14.1M</span></a>
+        <a href="#fig-03"><span>fig. 03</span><span class="fl-title">ConnectMe</span><span class="fl-status source">source</span><span class="fl-dom">android</span><span class="fl-met">Compose</span></a>
+        <a href="#fig-04"><span>fig. 04</span><span class="fl-title">ComfyBuy</span><span class="fl-status case">case</span><span class="fl-dom">android</span><span class="fl-met">Compose</span></a>
+        <a href="#fig-05"><span>fig. 05</span><span class="fl-title">Banking Transactions API</span><span class="fl-status case">case</span><span class="fl-dom">backend</span><span class="fl-met">ACID</span></a>
+        <a href="#fig-06"><span>fig. 06</span><span class="fl-title">E-Commerce Backend</span><span class="fl-status case">case</span><span class="fl-dom">backend</span><span class="fl-met">JWT</span></a>
+        <a href="#fig-07"><span>fig. 07</span><span class="fl-title">MedScholar</span><span class="fl-status live"><span class="d"></span>live</span><span class="fl-dom">platform</span><span class="fl-met">RAG</span></a>
+        <a href="#fig-08"><span>fig. 08</span><span class="fl-title">IndonesiaCompliance</span><span class="fl-status live"><span class="d"></span>live</span><span class="fl-dom">platform</span><span class="fl-met">1,000+</span></a>
+        <a href="#fig-09"><span>fig. 09</span><span class="fl-title">Agentic Film Studio</span><span class="fl-status source">source</span><span class="fl-dom">generative</span><span class="fl-met">5 agents</span></a>
+        <a href="#fig-10"><span>fig. 10</span><span class="fl-title">From-Scratch Architectures</span><span class="fl-status source">source</span><span class="fl-dom">deep learning</span><span class="fl-met">97.2%</span></a>
       </nav>
 
       <!-- 1. SLM RAG -->
       <article class="work-row reveal" id="fig-01">
         <div>
-          <div class="work-tags"><span class="tag domain">AI Research</span><span class="tag">Sole author</span></div>
+          <div class="work-tags"><span class="stat-pill source">Source</span><span class="tag domain">AI Research</span><span class="tag">Sole author</span></div>
           <h3><a href="https://github.com/AhmedMufti/slm-agentic-financial-rag" target="_blank" rel="noopener">Small Language Models in Agentic RAG</a></h3>
           <p>Empirical study of where small models fail in agentic retrieval over financial documents. Four SLMs (1.7B to 8B) plus a 117B ceiling on FinanceBench, naive RAG against an agentic ReAct loop, hybrid BM25 and BGE dense retrieval with reranking, a 10-category failure taxonomy, and dual 70B judges agreeing at Cohen's kappa 0.65. Full harness on Modal serverless GPUs.</p>
           <p class="work-stack">Python · Modal · BM25 + BGE · ReAct · FinanceBench</p>
@@ -824,11 +870,11 @@
       <!-- 2. reccs -->
       <article class="work-row reveal" id="fig-02">
         <div>
-          <div class="work-tags"><span class="tag domain">Platform</span><span class="tag">Live</span></div>
+          <div class="work-tags"><span class="stat-pill live"><span class="dot"></span>Live</span><span class="tag domain">Platform</span></div>
           <h3><a class="peek" href="https://reccs.co/" target="_blank" rel="noopener">reccs.co<span class="peek-card" aria-hidden="true"><img src="previews/reccs.png" alt="" loading="lazy"><span class="peek-cap"><span class="live-dot"></span>reccs.co · live now</span></span></a></h3>
           <p>Sentiment analysis at Reddit scale. Fine-tuned a RoBERTa model and classified 14.1 million comments across 937 subreddits on Modal A100 and T4 clusters, served through a DuckDB-backed FastAPI.</p>
           <p class="work-stack">RoBERTa · Modal GPU · DuckDB · FastAPI</p>
-          <div class="work-links"><a href="https://reccs.co/" target="_blank" rel="noopener">Live site ↗</a></div>
+          <div class="work-links"><a class="visit" href="https://reccs.co/" target="_blank" rel="noopener">Visit live ↗</a></div>
           <div class="work-stat"><span class="num">937</span><span class="cap">subreddits covered</span></div>
         </div>
         <div class="preview-slot">
@@ -869,7 +915,7 @@
       <!-- 3. ConnectMe -->
       <article class="work-row reveal" id="fig-03">
         <div>
-          <div class="work-tags"><span class="tag domain">Android</span><span class="tag">Kotlin</span></div>
+          <div class="work-tags"><span class="stat-pill source">Source</span><span class="tag domain">Android</span><span class="tag">Kotlin</span></div>
           <h3><a href="https://github.com/FaizanLiaqat/ConnectMe" target="_blank" rel="noopener">ConnectMe</a></h3>
           <p>A social networking app in Kotlin and Jetpack Compose: image posts, follow and search, time-limited stories, likes and comments, and real-time chat. MVVM with a Repository layer over a JWT-secured PHP and MySQL REST backend, with Room for local persistence.</p>
           <p class="work-stack">Kotlin · Jetpack Compose · MVVM · Room · JWT · MySQL</p>
@@ -921,7 +967,7 @@
       <!-- 4. ComfyBuy -->
       <article class="work-row reveal" id="fig-04">
         <div>
-          <div class="work-tags"><span class="tag domain">Android</span><span class="tag">Kotlin</span></div>
+          <div class="work-tags"><span class="stat-pill case">Case study</span><span class="tag domain">Android</span><span class="tag">Kotlin</span></div>
           <h3>ComfyBuy</h3>
           <p>A buy-and-sell marketplace where users post ads, browse listings, and buy items. Same discipline as ConnectMe: Kotlin, Jetpack Compose, MVVM plus Repository, JWT-secured REST, Room local storage.</p>
           <p class="work-stack">Kotlin · Jetpack Compose · MVVM · Room · JWT · MySQL</p>
@@ -973,7 +1019,7 @@
       <!-- 5. Banking Transactions API -->
       <article class="work-row reveal" id="fig-05">
         <div>
-          <div class="work-tags"><span class="tag domain">Backend · Java</span><span class="tag">Spring Boot</span></div>
+          <div class="work-tags"><span class="stat-pill case">Case study</span><span class="tag domain">Backend · Java</span><span class="tag">Spring Boot</span></div>
           <h3>Banking Transactions API</h3>
           <p>Account and money-transfer service modeled on mobile banking flows. Transfers run inside transactional service methods with optimistic locking and an append-only ledger table, keeping balances consistent under concurrent requests, over a normalized SQL Server schema indexed on statement query paths.</p>
           <p class="work-stack">Java · Spring Boot · SQL Server</p>
@@ -1024,7 +1070,7 @@
       <!-- 6. E-commerce backend -->
       <article class="work-row reveal" id="fig-06">
         <div>
-          <div class="work-tags"><span class="tag domain">Backend · Java</span><span class="tag">Spring Boot</span></div>
+          <div class="work-tags"><span class="stat-pill case">Case study</span><span class="tag domain">Backend · Java</span><span class="tag">Spring Boot</span></div>
           <h3>E-Commerce Backend</h3>
           <p>REST API for catalog, cart, orders, and inventory on a layered architecture: Spring Data JPA over a normalized MySQL schema, stateless JWT authentication with BCrypt and admin and customer roles, DTO validation with a global exception handler, pagination and sorting, Swagger docs, packaged with Docker.</p>
           <p class="work-stack">Java · Spring Boot · Spring Data JPA · Spring Security · MySQL · Docker</p>
@@ -1070,11 +1116,11 @@
       <!-- 7. MedScholar -->
       <article class="work-row reveal" id="fig-07">
         <div>
-          <div class="work-tags"><span class="tag domain">Platform</span><span class="tag">Final year project</span></div>
+          <div class="work-tags"><span class="stat-pill live"><span class="dot"></span>Live</span><span class="tag domain">Platform</span><span class="tag">Final year project</span></div>
           <h3><a class="peek" href="https://med-scholar-ten.vercel.app/" target="_blank" rel="noopener">MedScholar<span class="peek-card" aria-hidden="true"><img src="previews/medscholar.png" alt="" loading="lazy"><span class="peek-cap"><span class="live-dot"></span>med-scholar · live now</span></span></a></h3>
           <p>A clinical research platform that answers questions from medical literature through PubMed APIs and LangChain, with a hybrid FAISS and constraints design that keeps answers grounded in source documents.</p>
           <p class="work-stack">React · FastAPI · PostgreSQL · LangChain · FAISS</p>
-          <div class="work-links"><a href="https://med-scholar-ten.vercel.app/" target="_blank" rel="noopener">Live site ↗</a></div>
+          <div class="work-links"><a class="visit" href="https://med-scholar-ten.vercel.app/" target="_blank" rel="noopener">Visit live ↗</a></div>
           <div class="work-stat"><span class="num">RAG</span><span class="cap">grounded in PubMed</span></div>
         </div>
         <div class="preview-slot">
@@ -1118,11 +1164,11 @@
       <!-- 8. IndonesiaCompliance -->
       <article class="work-row reveal" id="fig-08">
         <div>
-          <div class="work-tags"><span class="tag domain">Platform</span><span class="tag">Live</span></div>
+          <div class="work-tags"><span class="stat-pill live"><span class="dot"></span>Live</span><span class="tag domain">Platform</span></div>
           <h3><a class="peek" href="https://indonesia-compliance.vercel.app/" target="_blank" rel="noopener">IndonesiaCompliance<span class="peek-card" aria-hidden="true"><img src="previews/indonesia.png" alt="" loading="lazy"><span class="peek-cap"><span class="live-dot"></span>indonesia-compliance · live now</span></span></a></h3>
           <p>A regulatory roadmap platform built on Indonesian government data. Next.js front end over a PostgreSQL-backed API, in production with over 1,000 roadmaps generated.</p>
           <p class="work-stack">Next.js · JavaScript · PostgreSQL</p>
-          <div class="work-links"><a href="https://indonesia-compliance.vercel.app/" target="_blank" rel="noopener">Live site ↗</a></div>
+          <div class="work-links"><a class="visit" href="https://indonesia-compliance.vercel.app/" target="_blank" rel="noopener">Visit live ↗</a></div>
           <div class="work-stat"><span class="num">1,000+</span><span class="cap">roadmaps generated</span></div>
         </div>
         <div class="preview-slot">
@@ -1168,7 +1214,7 @@
       <!-- 9. Film studio -->
       <article class="work-row reveal" id="fig-09">
         <div>
-          <div class="work-tags"><span class="tag domain">Generative AI</span><span class="tag">Multi-agent</span></div>
+          <div class="work-tags"><span class="stat-pill source">Source</span><span class="tag domain">Generative AI</span><span class="tag">Multi-agent</span></div>
           <h3><a href="https://github.com/AhmedMufti/agentic-film-studio" target="_blank" rel="noopener">Agentic Film Studio</a></h3>
           <p>Prompt to lip-synced animated short. Five cooperating LangGraph agents write the story, voice the dialogue, render scenes with consistent characters through PuLID and Stable Video Diffusion, and sync mouths with Wav2Lip on Modal GPUs.</p>
           <p class="work-stack">LangGraph · PuLID · Stable Video Diffusion · Wav2Lip · Modal</p>
@@ -1228,7 +1274,7 @@
       <!-- 10. From scratch -->
       <article class="work-row reveal" id="fig-10">
         <div>
-          <div class="work-tags"><span class="tag domain">Deep Learning</span><span class="tag">From scratch</span></div>
+          <div class="work-tags"><span class="stat-pill source">Source</span><span class="tag domain">Deep Learning</span><span class="tag">From scratch</span></div>
           <h3><a href="https://github.com/AhmedMufti/cyclegan-transformer-vit" target="_blank" rel="noopener">From-Scratch Architectures</a></h3>
           <p>Core architectures in raw PyTorch, no high-level wrappers: a CycleGAN for face-sketch translation, an English to Urdu Transformer benchmarked against fine-tuned mBART-50, and a ViT versus CNN study on CIFAR-10 quantifying the data-efficiency gap.</p>
           <p class="work-stack">PyTorch · CycleGAN · Transformer · ViT</p>
