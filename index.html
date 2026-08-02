@@ -238,11 +238,9 @@
   .reel-badge { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--live); display: inline-flex; align-items: center; gap: 5px; }
   .reel-badge .d2 { width: 6px; height: 6px; border-radius: 50%; background: var(--live); }
   .reel-view { position: relative; aspect-ratio: 16/10; overflow: hidden; }
-  .reel-strip { width: 100%; display: block; will-change: transform; }
-  .reel.play .reel-strip { animation: reelscroll 24s ease-in-out infinite alternate; }
-  .reel:hover .reel-strip { animation-play-state: paused; }
-  @keyframes reelscroll { from { transform: translateY(0); } to { transform: translateY(-77%); } }
-  .reel-open { position: absolute; inset: auto 0 0 0; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; font-family: var(--mono); font-size: 13px; color: #fff; background: linear-gradient(to top, rgba(7,8,11,0.92), transparent); opacity: 0; transition: opacity 0.25s; }
+  .reel-strip { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform 0.5s ease; }
+  .reel:hover .reel-strip { transform: scale(1.03); }
+  .reel-open { position: absolute; inset: auto 0 0 0; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px; font-family: var(--mono); font-size: 13px; color: #fff; background: linear-gradient(to top, rgba(7,8,11,0.92), transparent); opacity: 0; transition: opacity 0.25s; }
   .reel:hover .reel-open { opacity: 1; }
   @media (max-width: 860px) {
     .reel-item, .reel-item.flip { grid-template-columns: 1fr; gap: 22px; }
@@ -311,7 +309,6 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-    .reel.play .reel-strip { animation: none !important; }
     .scroll-cue .line::after, .visit .pp { animation: none !important; }
   }
 </style>
@@ -377,7 +374,7 @@
       <div class="sec-head reveal">
         <span class="eyebrow">Live in production</span>
         <h2>See it running, not just described.</h2>
-        <p>Three products deployed and serving real users right now. Each frame below is the actual site, scrolling on its own. Hover to pause, click to open the real thing.</p>
+        <p>Three products deployed and serving real users right now. Each frame is the actual site. Click any of them to open the real thing in a new tab.</p>
       </div>
 
       <div class="reels">
@@ -395,7 +392,7 @@
           </div>
           <div class="reel">
             <div class="reel-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="reel-url">reccs.co</span><span class="reel-badge"><span class="d2"></span>live</span></div>
-            <div class="reel-view"><img class="reel-strip" src="previews/reccs_reel.jpg" alt="reccs.co home page" loading="lazy" decoding="async"></div>
+            <div class="reel-view"><img class="reel-strip" src="previews/reccs_shot.jpg" alt="reccs.co home page" loading="lazy" decoding="async"></div>
             <a class="reel-open" href="https://reccs.co/" target="_blank" rel="noopener">Open reccs.co ↗</a>
           </div>
         </div>
@@ -414,7 +411,7 @@
           </div>
           <div class="reel">
             <div class="reel-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="reel-url">med-scholar-ten.vercel.app</span><span class="reel-badge"><span class="d2"></span>live</span></div>
-            <div class="reel-view"><img class="reel-strip" src="previews/medscholar_reel.jpg" alt="MedScholar app" loading="lazy" decoding="async"></div>
+            <div class="reel-view"><img class="reel-strip" src="previews/medscholar_shot.jpg" alt="MedScholar app" loading="lazy" decoding="async"></div>
             <a class="reel-open" href="https://med-scholar-ten.vercel.app/" target="_blank" rel="noopener">Open MedScholar ↗</a>
           </div>
         </div>
@@ -433,7 +430,7 @@
           </div>
           <div class="reel">
             <div class="reel-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="reel-url">indonesia-compliance.vercel.app</span><span class="reel-badge"><span class="d2"></span>live</span></div>
-            <div class="reel-view"><img class="reel-strip" src="previews/indonesia_reel.jpg" alt="IndonesiaCompliance platform" loading="lazy" decoding="async"></div>
+            <div class="reel-view"><img class="reel-strip" src="previews/indonesia_shot.jpg" alt="IndonesiaCompliance platform" loading="lazy" decoding="async"></div>
             <a class="reel-open" href="https://indonesia-compliance.vercel.app/" target="_blank" rel="noopener">Open IndonesiaCompliance ↗</a>
           </div>
         </div>
@@ -626,11 +623,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, { threshold: 0.5 });
   document.querySelectorAll("[data-count]").forEach((el) => cio.observe(el));
-
-  // reel play only when in view
-  document.querySelectorAll(".reel").forEach((r) => {
-    new IntersectionObserver((es) => { es.forEach((e) => r.classList.toggle("play", e.isIntersecting && !reduced)); }, { threshold: 0.25 }).observe(r);
-  });
 
   // card cursor glow
   const fine = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
