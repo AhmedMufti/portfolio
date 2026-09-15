@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#F2F3EF" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111417" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1311" media="(prefers-color-scheme: dark)">
 <title>Muhammad Ahmed Mufti, software engineer</title>
 <meta name="description" content="Full-stack and AI engineer in Islamabad. Six web products live in production, a sole-author research study on small language models, and the code to prove it.">
 <meta property="og:title" content="Muhammad Ahmed Mufti, software engineer">
@@ -13,10 +13,10 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ahmedmufti.github.io/portfolio/">
 <meta property="og:image" content="https://ahmedmufti.github.io/portfolio/previews/reccs.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%231F3FBF'/%3E%3Cpath d='M15 47V17h7l10 16 10-16h7v30h-7V30l-10 15-10-15v17z' fill='%23F2F3EF'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230C1210'/%3E%3Cpath d='M15 47V17h7l10 16 10-16h7v30h-7V30l-10 15-10-15v17z' fill='%23EEF0EA'/%3E%3Ccircle cx='52' cy='12' r='6' fill='%23D4421E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..600,0..100;1,9..144,400..600,0..100&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -32,30 +32,32 @@
 </script>
 <style>
   :root {
-    --paper: #F2F3EF;
-    --paper-2: #E9EBE5;
-    --ink: #101418;
-    --graphite: #5B6270;
-    --cobalt: #1F3FBF;
-    --live: #0E8F62;
-    --warn: #A15C00;
-    --rule: #CFD3CB;
-    --rule-2: #B6BBB1;
+    --paper: #EEF0EA;
+    --paper-2: #E4E7DF;
+    --paper-3: #F7F8F4;
+    --ink: #0C1210;
+    --ink-2: #2A3330;
+    --graphite: #5F6966;
+    --hair: #C9CEC4;
+    --hair-2: #AAB1A9;
+    --accent: #D4421E;
+    --accent-ink: #B3361A;
+    --live: #138A5A;
+    --warn: #B5680B;
     --display: "Fraunces", Georgia, "Times New Roman", serif;
-    --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --measure: 62ch;
+    --sans: "Instrument Sans", "Inter", system-ui, -apple-system, sans-serif;
+    --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px; --s5: 48px; --s6: 64px; --s7: 96px; --s8: 128px;
+    --w: 1160px;
+    --r: 4px;
+    --shadow: 0 1px 0 rgba(12,18,16,0.06), 0 12px 32px -18px rgba(12,18,16,0.35);
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #111417;
-      --paper-2: #181C21;
-      --ink: #ECEDE8;
-      --graphite: #A0A6B0;
-      --cobalt: #93A6FF;
-      --live: #4ED0A0;
-      --warn: #E0A64A;
-      --rule: #2A2F36;
-      --rule-2: #3B424B;
+      --paper: #0F1311; --paper-2: #161C19; --paper-3: #131816;
+      --ink: #EDEFE9; --ink-2: #C9CEC6; --graphite: #98A19C;
+      --hair: #263029; --hair-2: #3A463E;
+      --accent: #FF7248; --accent-ink: #FF8A66; --live: #4CD39A; --warn: #E3A34A;
+      --shadow: 0 1px 0 rgba(0,0,0,0.3), 0 16px 40px -20px rgba(0,0,0,0.8);
     }
   }
 
@@ -65,372 +67,424 @@
     background: var(--paper);
     color: var(--ink);
     font-family: var(--sans);
-    font-size: 17px;
-    line-height: 1.6;
-    font-feature-settings: "ss01", "cv11";
+    font-size: 16px;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     overflow-x: clip;
+    position: relative;
   }
-  a { color: var(--cobalt); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; text-decoration-color: color-mix(in srgb, var(--cobalt) 45%, transparent); }
-  a:hover { text-decoration-color: currentColor; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-radius: 2px; }
-  ::selection { background: var(--cobalt); color: var(--paper); }
+  /* ruled paper */
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image: repeating-linear-gradient(to bottom, transparent 0 31px, color-mix(in srgb, var(--ink) 3.5%, transparent) 31px 32px);
+  }
+  a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; text-decoration-color: var(--hair-2); transition: text-decoration-color 0.15s; }
+  a:hover { text-decoration-color: var(--accent); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  ::selection { background: var(--accent); color: var(--paper); }
   img { max-width: 100%; height: auto; display: block; }
-  em { font-style: italic; }
-
-  .wrap { width: min(1140px, 100%); margin-inline: auto; padding-inline: clamp(18px, 4vw, 40px); }
-
+  .wrap { width: min(var(--w), 100%); margin-inline: auto; padding-inline: clamp(18px, 4vw, 40px); }
   .skip { position: absolute; left: -9999px; top: 8px; background: var(--ink); color: var(--paper); padding: 8px 14px; z-index: 50; }
   .skip:focus { left: 12px; }
 
-  /* ---------- title block ---------- */
-  .titleblock { border-bottom: 1px solid var(--rule-2); padding-top: max(18px, env(safe-area-inset-top)); }
-  .titleblock .grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-    gap: 0;
-    border-left: 1px solid var(--rule-2);
-    border-right: 1px solid var(--rule-2);
+  /* ---------- type ---------- */
+  .display { font-family: var(--display); font-weight: 500; letter-spacing: -0.02em; font-variation-settings: "opsz" 144, "SOFT" 30; }
+  h1 { font-family: var(--display); font-weight: 500; font-size: clamp(44px, 6.4vw, 84px); line-height: 0.98; letter-spacing: -0.028em; font-variation-settings: "opsz" 144, "SOFT" 30; text-wrap: balance; }
+  h1 i { font-style: italic; font-weight: 400; }
+  h2 { font-family: var(--display); font-weight: 500; font-size: clamp(30px, 3.6vw, 46px); line-height: 1.04; letter-spacing: -0.02em; font-variation-settings: "opsz" 72, "SOFT" 30; text-wrap: balance; max-width: 22ch; }
+  h3 { font-family: var(--display); font-weight: 500; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.1; letter-spacing: -0.015em; font-variation-settings: "opsz" 36, "SOFT" 30; }
+  .num { font-family: var(--display); font-weight: 500; font-variant-numeric: tabular-nums lining-nums; letter-spacing: -0.02em; font-variation-settings: "opsz" 72, "SOFT" 30; }
+  .muted { color: var(--graphite); }
+  .small { font-size: 13.5px; }
+
+  /* ---------- stamp ---------- */
+  .stamp {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1;
+    color: var(--accent); border: 2px solid var(--accent); border-radius: 6px; padding: 8px 12px 7px;
+    transform: rotate(-2.5deg); transform-origin: left center;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    -webkit-mask-size: 120px 40px; mask-size: 120px 40px;
   }
-  .tb { padding: 14px 16px 16px; border-left: 1px solid var(--rule); font-size: 14px; line-height: 1.45; }
-  .tb:first-child { border-left: none; }
-  .tb .k { display: block; color: var(--graphite); font-size: 12.5px; margin-bottom: 4px; }
-  .tb .v { display: block; font-weight: 500; }
-  .tb .v a { text-decoration: none; }
-  .tb .v a:hover { text-decoration: underline; }
-  .tb.name .v { font-family: var(--display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; line-height: 1.15; font-variation-settings: "opsz" 20; }
-  .tb .nav { display: flex; gap: 14px; margin-top: 6px; }
-  .tb .nav a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule-2); }
-  .tb .nav a:hover { border-color: var(--ink); }
-  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--live); margin-right: 7px; vertical-align: 1px; }
-  @media (max-width: 820px) {
-    .titleblock .grid { grid-template-columns: 1fr 1fr; }
-    .tb:nth-child(3) { border-left: none; border-top: 1px solid var(--rule); }
-    .tb:nth-child(4) { border-top: 1px solid var(--rule); }
-  }
-  @media (max-width: 480px) {
-    .titleblock .grid { grid-template-columns: 1fr; border-left: none; border-right: none; }
-    .tb { border-left: none; border-top: 1px solid var(--rule); padding-inline: 0; }
-    .tb:first-child { border-top: none; }
-  }
+  .stamp.flat { transform: none; }
+  .stamp .d { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+  /* ---------- buttons ---------- */
+  .btn { display: inline-flex; align-items: center; gap: 10px; font-weight: 500; font-size: 15px; line-height: 1; padding: 15px 22px; border-radius: 999px; text-decoration: none; border: 1.5px solid var(--ink); transition: transform 0.15s, background 0.15s, color 0.15s; }
+  .btn.fill { background: var(--ink); color: var(--paper); }
+  .btn.fill:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn.line { color: var(--ink); background: transparent; }
+  .btn.line:hover { background: var(--paper-2); }
+  .btn:active { transform: translateY(1px); }
+
+  /* ---------- top bar ---------- */
+  .top { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--hair); padding-top: env(safe-area-inset-top, 0px); }
+  .top .row { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); height: 60px; }
+  .mark { font-family: var(--display); font-weight: 600; font-size: 19px; letter-spacing: -0.01em; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; font-variation-settings: "opsz" 20, "SOFT" 30; }
+  .mark .sq { width: 10px; height: 10px; background: var(--accent); border-radius: 2px; }
+  .top nav { display: flex; gap: clamp(14px, 2.4vw, 28px); font-size: 14.5px; }
+  .top nav a { text-decoration: none; color: var(--ink-2); padding: 6px 0; border-bottom: 1.5px solid transparent; }
+  .top nav a:hover { border-color: var(--ink); color: var(--ink); }
+  .top .cta { font-size: 14px; padding: 10px 16px; }
+  @media (max-width: 640px) { .top nav { display: none; } }
 
   /* ---------- hero ---------- */
-  .hero { padding-block: clamp(56px, 9vh, 120px) clamp(40px, 6vh, 72px); }
-  h1 {
-    font-family: var(--display);
-    font-weight: 300;
-    font-size: clamp(40px, 7.2vw, 96px);
-    line-height: 1.0;
-    letter-spacing: -0.025em;
-    max-width: 14ch;
-    font-variation-settings: "opsz" 144;
-  }
-  h1 em { font-weight: 300; }
-  .lede { margin-top: clamp(22px, 3vh, 34px); max-width: var(--measure); font-size: clamp(17px, 1.5vw, 20px); color: var(--graphite); }
-  .lede b { color: var(--ink); font-weight: 500; }
+  .hero { padding-block: clamp(48px, 8vh, 104px) clamp(40px, 6vh, 72px); }
+  .hero .grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+  .hero .stamp { margin-bottom: var(--s3); }
+  .hero .lede { margin-top: var(--s3); font-size: clamp(17px, 1.45vw, 19px); line-height: 1.55; color: var(--ink-2); max-width: 54ch; }
+  .hero .lede b { font-weight: 600; color: var(--ink); }
+  .hero .actions { margin-top: var(--s4); display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .hero .meta { margin-top: var(--s4); display: flex; gap: var(--s3); flex-wrap: wrap; color: var(--graphite); font-size: 14px; }
+  .hero .meta span b { color: var(--ink); font-weight: 500; }
 
-  /* ---------- live check ---------- */
-  .check { margin-top: clamp(36px, 6vh, 64px); border-top: 1px solid var(--rule-2); }
-  .check-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; padding: 14px 0 8px; }
-  .check-head h2 { font-family: var(--display); font-weight: 500; font-size: 22px; letter-spacing: -0.01em; font-variation-settings: "opsz" 24; }
-  .check-head p { color: var(--graphite); font-size: 14px; max-width: 60ch; }
-  .check-head button {
-    font: inherit; font-size: 14px; font-weight: 500; color: var(--ink);
-    background: transparent; border: 1px solid var(--rule-2); border-radius: 999px; padding: 7px 14px; cursor: pointer;
+  /* the sheet stack */
+  .stack-wrap { position: relative; }
+  .stack { position: relative; aspect-ratio: 5 / 4; width: 100%; }
+  .stack a { position: absolute; inset: 4% 8%; display: block; text-decoration: none; transition: transform 0.55s cubic-bezier(.2,.8,.2,1); transform: rotate(var(--rot)) translate(var(--tx), var(--ty)); will-change: transform; }
+  .stack .sheet-img { border: 1px solid var(--hair-2); background: var(--paper-3); box-shadow: var(--shadow); overflow: hidden; aspect-ratio: 4 / 3; }
+  .stack .sheet-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .stack .tag { position: absolute; left: 10px; bottom: 10px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; background: var(--ink); color: var(--paper); padding: 5px 8px; border-radius: 3px; opacity: 0; transition: opacity 0.2s; }
+  .stack:hover a { transform: rotate(var(--rot2)) translate(var(--tx2), var(--ty2)); }
+  .stack:hover .tag { opacity: 1; }
+  .stack a:hover { z-index: 10; }
+  .stack-cap { margin-top: 10px; display: flex; justify-content: space-between; font-size: 13px; color: var(--graphite); }
+  .strip { display: none; }
+  @media (max-width: 880px) {
+    .hero .grid { grid-template-columns: 1fr; }
+    .stack-wrap { display: none; }
+    .strip { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: var(--s3) 0 var(--s1); margin-inline: calc(-1 * clamp(18px, 4vw, 40px)); padding-inline: clamp(18px, 4vw, 40px); scroll-padding-inline: clamp(18px, 4vw, 40px); scrollbar-width: none; }
+    .strip::-webkit-scrollbar { display: none; }
+    .strip a { flex: 0 0 72%; scroll-snap-align: start; text-decoration: none; }
+    .strip .sheet-img { border: 1px solid var(--hair-2); box-shadow: var(--shadow); aspect-ratio: 4 / 3; overflow: hidden; }
+    .strip .sheet-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .strip .cap { margin-top: 6px; font-size: 13px; color: var(--graphite); }
   }
-  .check-head button:hover { border-color: var(--ink); }
-  .check-head button[disabled] { opacity: 0.5; cursor: default; }
-  table.sites { width: 100%; border-collapse: collapse; font-size: 15px; }
-  table.sites th, table.sites td { text-align: left; padding: 11px 10px 11px 0; border-top: 1px solid var(--rule); vertical-align: baseline; }
-  table.sites th { font-weight: 500; color: var(--graphite); font-size: 13px; }
-  table.sites tr:last-child td { border-bottom: 1px solid var(--rule-2); }
-  table.sites td.site a { color: var(--ink); font-weight: 500; text-decoration: none; }
-  table.sites td.site a:hover { text-decoration: underline; }
-  table.sites td.host { color: var(--graphite); }
-  table.sites td.ms { font-variant-numeric: tabular-nums; white-space: nowrap; }
-  table.sites td.st { white-space: nowrap; }
-  .st .ok { color: var(--live); }
-  .st .wait { color: var(--warn); }
-  .st .no { color: var(--graphite); }
-  .st .pend { color: var(--graphite); }
-  .st .pend::after { content: ""; display: inline-block; width: 1em; text-align: left; animation: dots 1.2s steps(4, end) infinite; }
-  @keyframes dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } }
-  .check-foot { color: var(--graphite); font-size: 13px; padding-top: 10px; }
-  @media (max-width: 640px) { table.sites .host, table.sites th.host { display: none; } table.sites { font-size: 14px; } }
+
+  /* ---------- status board ---------- */
+  .board { margin-top: clamp(32px, 5vh, 56px); border: 1px solid var(--hair-2); background: var(--paper-3); border-radius: var(--r); box-shadow: var(--shadow); }
+  .board-head { display: flex; justify-content: space-between; align-items: center; gap: var(--s2); padding: 14px 18px; border-bottom: 1px solid var(--hair); flex-wrap: wrap; }
+  .board-head h2 { font-size: 20px; max-width: none; }
+  .board-head p { font-size: 13.5px; color: var(--graphite); }
+  .board-head button { font: inherit; font-size: 13.5px; font-weight: 500; color: var(--ink); background: transparent; border: 1.5px solid var(--hair-2); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+  .board-head button:hover { border-color: var(--ink); }
+  .board-head button[disabled] { opacity: 0.45; cursor: default; }
+  .cells { display: grid; grid-template-columns: repeat(6, 1fr); }
+  .cell { padding: 16px 18px 18px; border-left: 1px solid var(--hair); min-width: 0; }
+  .cell:first-child { border-left: none; }
+  .cell .n { font-weight: 600; font-size: 14px; line-height: 1.25; min-height: 2.5em; }
+  .cell .n a { text-decoration: none; }
+  .cell .n a:hover { text-decoration: underline; }
+  .cell .h { font-size: 12px; color: var(--graphite); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
+  .cell .ms { margin-top: 12px; font-size: 30px; line-height: 1; min-height: 30px; }
+  .cell .ms small { font-family: var(--sans); font-size: 12px; color: var(--graphite); margin-left: 3px; letter-spacing: 0; }
+  .cell .st { margin-top: 8px; font-size: 12.5px; display: flex; align-items: center; gap: 7px; }
+  .cell .st .d { width: 7px; height: 7px; border-radius: 50%; background: var(--hair-2); flex: none; }
+  .cell.ok .st { color: var(--live); } .cell.ok .st .d { background: var(--live); box-shadow: 0 0 0 3px color-mix(in srgb, var(--live) 18%, transparent); }
+  .cell.wait .st { color: var(--warn); } .cell.wait .st .d { background: var(--warn); }
+  .cell.no .st { color: var(--graphite); }
+  .cell.pend .st .d { animation: blink 1s ease-in-out infinite; }
+  @keyframes blink { 50% { opacity: 0.25; } }
+  .board-foot { padding: 10px 18px 12px; border-top: 1px solid var(--hair); font-size: 12.5px; color: var(--graphite); }
+  @media (max-width: 900px) { .cells { grid-template-columns: repeat(3, 1fr); } .cell:nth-child(4) { border-left: none; } .cell:nth-child(n+4) { border-top: 1px solid var(--hair); } }
+  @media (max-width: 520px) { .cells { grid-template-columns: repeat(2, 1fr); } .cell:nth-child(4) { border-left: 1px solid var(--hair); } .cell:nth-child(odd) { border-left: none; } .cell:nth-child(n+3) { border-top: 1px solid var(--hair); } .cell .ms { font-size: 26px; } }
 
   /* ---------- sections ---------- */
-  section { padding-block: clamp(52px, 8vh, 104px); }
-  section + section { border-top: 1px solid var(--rule-2); }
-  h2.sec {
-    font-family: var(--display); font-weight: 400;
-    font-size: clamp(30px, 4vw, 48px); letter-spacing: -0.02em; line-height: 1.05;
-    max-width: 22ch; font-variation-settings: "opsz" 72;
-  }
-  .sec-intro { margin-top: 14px; color: var(--graphite); max-width: var(--measure); }
+  section { padding-block: clamp(56px, 9vh, 112px); }
+  .sec-head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s4); align-items: end; margin-bottom: clamp(28px, 4vh, 44px); }
+  .sec-head p { color: var(--graphite); font-size: 15.5px; max-width: 46ch; }
+  .sec-head .stamp { margin-bottom: 14px; }
+  @media (max-width: 760px) { .sec-head { grid-template-columns: 1fr; gap: 12px; } }
 
   /* ---------- sheets ---------- */
-  .sheets { margin-top: clamp(32px, 5vh, 56px); display: flex; flex-direction: column; gap: clamp(44px, 7vh, 88px); }
-  .sheet { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(22px, 3.5vw, 48px); align-items: start; }
-  .sheet figure { margin: 0; }
-  .frame { border: 1px solid var(--rule-2); background: var(--paper-2); aspect-ratio: 16 / 10; overflow: hidden; }
-  .frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-  .sheet a.framelink { display: block; text-decoration: none; }
-  .sheet a.framelink:hover .frame { border-color: var(--ink); }
-  figcaption { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; font-size: 13px; color: var(--graphite); }
-  .sheetno { font-size: 13px; color: var(--graphite); }
-  .sheet h3 { font-family: var(--display); font-weight: 500; font-size: clamp(26px, 2.8vw, 34px); letter-spacing: -0.015em; line-height: 1.1; margin-top: 8px; font-variation-settings: "opsz" 36; }
-  .sheet h3 a { color: inherit; text-decoration: none; }
-  .sheet h3 a:hover { text-decoration: underline; }
-  .sheet .about { margin-top: 12px; color: var(--graphite); max-width: 48ch; }
-  .spec { margin-top: 18px; width: 100%; border-collapse: collapse; font-size: 14.5px; }
-  .spec th, .spec td { text-align: left; vertical-align: top; padding: 9px 0; border-top: 1px solid var(--rule); }
-  .spec tr:last-child th, .spec tr:last-child td { border-bottom: 1px solid var(--rule-2); }
-  .spec th { font-weight: 500; color: var(--graphite); width: 6.5em; padding-right: 12px; }
-  .spec td .fig { font-family: var(--display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; font-variation-settings: "opsz" 20; }
-  .spec td .fig small { font-family: var(--sans); font-size: 14.5px; font-weight: 400; color: var(--graphite); margin-left: 6px; }
-  .spec td a + a { margin-left: 14px; }
-  @media (max-width: 860px) { .sheet { grid-template-columns: 1fr; } .sheet .about { max-width: var(--measure); } }
+  .sheets { display: flex; flex-direction: column; gap: clamp(20px, 3vh, 28px); }
+  .sheet { border: 1px solid var(--hair-2); background: var(--paper-3); border-radius: var(--r); box-shadow: var(--shadow); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); overflow: hidden; }
+  .sheet .shot { border-right: 1px solid var(--hair); display: flex; flex-direction: column; min-width: 0; }
+  .sheet .shot a { display: block; text-decoration: none; overflow: hidden; flex: 1; background: var(--paper-2); }
+  .sheet .shot img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center top; transition: transform 0.6s cubic-bezier(.2,.8,.2,1); }
+  .sheet .shot a:hover img { transform: scale(1.02); }
+  .sheet .capbar { display: flex; justify-content: space-between; gap: 12px; padding: 9px 14px; border-top: 1px solid var(--hair); font-size: 12.5px; color: var(--graphite); }
+  .sheet .capbar span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sheet .body { padding: clamp(20px, 2.6vw, 32px); display: flex; flex-direction: column; min-width: 0; }
+  .sheet .no { font-size: 12.5px; color: var(--graphite); display: flex; justify-content: space-between; align-items: center; }
+  .sheet .no .live { color: var(--live); display: inline-flex; align-items: center; gap: 6px; font-weight: 600; letter-spacing: 0.04em; font-size: 11.5px; text-transform: uppercase; }
+  .sheet .no .live .d { width: 6px; height: 6px; border-radius: 50%; background: var(--live); }
+  .sheet h3 { margin-top: 12px; }
+  .sheet h3 a { text-decoration: none; }
+  .sheet h3 a:hover { text-decoration: underline; text-decoration-thickness: 1.5px; }
+  .sheet .fig { margin-top: 14px; padding: 12px 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .sheet .fig .num { font-size: clamp(34px, 3.2vw, 44px); line-height: 1; }
+  .sheet .fig .num.word { font-size: clamp(24px, 2.2vw, 30px); font-style: italic; font-weight: 400; }
+  .sheet .fig .lab { font-size: 14px; color: var(--graphite); max-width: 28ch; }
+  .sheet .about { margin-top: 14px; color: var(--ink-2); font-size: 14.5px; line-height: 1.5; }
+  .sheet dl { margin-top: 12px; display: grid; grid-template-columns: 5.5em 1fr; row-gap: 6px; column-gap: 12px; font-size: 13.5px; line-height: 1.45; }
+  .sheet dt { color: var(--graphite); }
+  .sheet dd { color: var(--ink-2); }
+  .sheet .links { margin-top: auto; padding-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .sheet .links a { font-size: 13.5px; font-weight: 500; text-decoration: none; border: 1.5px solid var(--hair-2); border-radius: 999px; padding: 8px 14px; transition: border-color 0.15s, background 0.15s; }
+  .sheet .links a:hover { border-color: var(--ink); background: var(--paper-2); }
+  .sheet .links a.go { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .sheet .links a.go:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (max-width: 860px) { .sheet { grid-template-columns: 1fr; } .sheet .shot { border-right: none; border-bottom: 1px solid var(--hair); } }
 
-  /* ---------- research plate ---------- */
-  .plate { margin-top: clamp(28px, 4vh, 44px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(22px, 3.5vw, 56px); }
-  .plate h3 { font-family: var(--display); font-weight: 500; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.25; letter-spacing: -0.01em; max-width: 30ch; font-variation-settings: "opsz" 28; }
-  .plate .meta { margin-top: 8px; color: var(--graphite); font-size: 14.5px; }
-  .plate p.abs { margin-top: 18px; max-width: var(--measure); }
-  .plate p.abs + p.abs { margin-top: 12px; }
-  .plate .links { margin-top: 18px; font-size: 15px; }
-  .results { width: 100%; border-collapse: collapse; font-size: 14.5px; }
-  .results caption { text-align: left; color: var(--graphite); font-size: 13px; padding-bottom: 8px; }
-  .results th, .results td { text-align: left; padding: 10px 0; border-top: 1px solid var(--rule); vertical-align: top; }
-  .results tr:last-child th, .results tr:last-child td { border-bottom: 1px solid var(--rule-2); }
-  .results th { font-weight: 500; color: var(--graphite); width: 42%; padding-right: 12px; }
-  .results td { font-variant-numeric: tabular-nums; }
-  .results td b { font-family: var(--display); font-weight: 500; font-size: 19px; font-variation-settings: "opsz" 20; }
-  @media (max-width: 860px) { .plate { grid-template-columns: 1fr; } }
+  /* ---------- research ---------- */
+  .plate { border: 1px solid var(--hair-2); background: var(--paper-3); border-radius: var(--r); box-shadow: var(--shadow); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+  .plate .text { padding: clamp(22px, 3vw, 40px); border-right: 1px solid var(--hair); }
+  .plate .text h3 { font-size: clamp(22px, 2.2vw, 28px); line-height: 1.22; max-width: 32ch; }
+  .plate .meta { margin-top: 10px; font-size: 13.5px; color: var(--graphite); }
+  .plate p.abs { margin-top: 16px; color: var(--ink-2); font-size: 15px; max-width: 62ch; }
+  .plate .links { margin-top: 22px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .plate .links a { font-size: 13.5px; font-weight: 500; text-decoration: none; border: 1.5px solid var(--ink); border-radius: 999px; padding: 8px 14px; background: var(--ink); color: var(--paper); }
+  .plate .links a:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; }
+  .stat { padding: 18px 20px 20px; border-bottom: 1px solid var(--hair); border-left: 1px solid var(--hair); display: flex; flex-direction: column; justify-content: center; }
+  .stat:nth-child(odd) { border-left: none; }
+  .stat:nth-last-child(-n+2) { border-bottom: none; }
+  .stat .num { font-size: clamp(28px, 2.6vw, 36px); line-height: 1; }
+  .stat .lab { margin-top: 8px; font-size: 13px; color: var(--graphite); line-height: 1.4; }
+  @media (max-width: 860px) { .plate { grid-template-columns: 1fr; } .plate .text { border-right: none; border-bottom: 1px solid var(--hair); } }
 
   /* ---------- also built ---------- */
-  .list { margin-top: clamp(24px, 4vh, 40px); width: 100%; border-collapse: collapse; font-size: 15px; }
-  .list th, .list td { text-align: left; vertical-align: top; padding: 12px 14px 12px 0; border-top: 1px solid var(--rule); }
-  .list tr:last-child td { border-bottom: 1px solid var(--rule-2); }
-  .list th { font-weight: 500; color: var(--graphite); font-size: 13px; }
-  .list td.n { font-weight: 500; white-space: nowrap; }
-  .list td.n a { color: var(--ink); text-decoration: none; }
-  .list td.n a:hover { text-decoration: underline; }
-  .list td.w { color: var(--graphite); max-width: 60ch; }
-  .list td.p { white-space: nowrap; }
-  .list td.p .priv { color: var(--graphite); }
-  @media (max-width: 720px) {
-    .list thead { display: none; }
-    .list tr { display: grid; grid-template-columns: 1fr; padding: 12px 0; border-top: 1px solid var(--rule); }
-    .list td { border: none; padding: 2px 0; }
-    .list td.n { white-space: normal; }
-    .list tr:last-child { border-bottom: 1px solid var(--rule-2); }
-    .list tr:last-child td { border-bottom: none; }
-  }
+  .rows { border-top: 1px solid var(--hair-2); }
+  .rowi { display: grid; grid-template-columns: 15em 1fr 9em; gap: var(--s3); padding: 16px 0; border-bottom: 1px solid var(--hair); align-items: baseline; }
+  .rowi .n { font-weight: 600; font-size: 15px; }
+  .rowi .n a { text-decoration: none; }
+  .rowi .n a:hover { text-decoration: underline; }
+  .rowi .w { color: var(--ink-2); font-size: 14.5px; max-width: 64ch; }
+  .rowi .p { font-size: 13.5px; text-align: right; }
+  .rowi .p a { text-decoration: none; font-weight: 500; border-bottom: 1.5px solid var(--hair-2); }
+  .rowi .p a:hover { border-color: var(--accent); }
+  .rowi .p .priv { color: var(--graphite); }
+  @media (max-width: 760px) { .rowi { grid-template-columns: 1fr; gap: 6px; } .rowi .p { text-align: left; } }
 
   /* ---------- toolbox ---------- */
-  .tools { margin-top: clamp(24px, 4vh, 40px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; }
-  .tools dl { border-top: 1px solid var(--rule-2); }
-  .tools div { display: grid; grid-template-columns: 6.5em 1fr; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--rule); font-size: 15px; }
-  .tools dt { color: var(--graphite); font-weight: 500; }
-  @media (max-width: 720px) { .tools { grid-template-columns: 1fr; } .tools dl + dl { border-top: none; } }
+  .tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s3); }
+  .tool { border: 1px solid var(--hair-2); background: var(--paper-3); border-radius: var(--r); padding: 20px 22px 22px; }
+  .tool h4 { font-family: var(--display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; font-variation-settings: "opsz" 24, "SOFT" 30; }
+  .tool p { margin-top: 10px; font-size: 14.5px; color: var(--ink-2); }
+  .tool p + p { margin-top: 6px; }
+  .tool p b { font-weight: 600; color: var(--ink); }
+  @media (max-width: 860px) { .tools { grid-template-columns: 1fr; } }
 
   /* ---------- path ---------- */
-  .path { margin-top: clamp(24px, 4vh, 40px); width: 100%; border-collapse: collapse; font-size: 15px; }
-  .path td { padding: 14px 14px 14px 0; border-top: 1px solid var(--rule); vertical-align: top; }
-  .path tr:last-child td { border-bottom: 1px solid var(--rule-2); }
-  .path td.when { color: var(--graphite); white-space: nowrap; font-variant-numeric: tabular-nums; width: 11em; }
-  .path td.what b { font-weight: 500; }
-  .path td.what span { color: var(--graphite); }
-  .path td.where { color: var(--graphite); text-align: right; white-space: nowrap; }
-  @media (max-width: 640px) { .path td.where { display: none; } .path td.when { width: 8em; } }
+  .tl { position: relative; border-left: 1.5px solid var(--hair-2); margin-left: 6px; }
+  .tli { position: relative; padding: 0 0 28px 28px; display: grid; grid-template-columns: 12em 1fr; gap: var(--s3); }
+  .tli::before { content: ""; position: absolute; left: -6.5px; top: 7px; width: 11px; height: 11px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); }
+  .tli.now::before { background: var(--accent); border-color: var(--accent); }
+  .tli:last-child { padding-bottom: 4px; }
+  .tli .when { font-size: 14px; color: var(--graphite); font-variant-numeric: tabular-nums; padding-top: 2px; }
+  .tli .what b { font-weight: 600; font-size: 16px; }
+  .tli .what span { display: block; color: var(--ink-2); font-size: 14.5px; margin-top: 4px; max-width: 60ch; }
+  @media (max-width: 640px) { .tli { grid-template-columns: 1fr; gap: 4px; } }
 
   /* ---------- contact ---------- */
-  .contact h2.sec { max-width: 16ch; }
-  .contact .big { display: inline-block; margin-top: 22px; font-family: var(--display); font-weight: 400; font-size: clamp(22px, 3.6vw, 40px); letter-spacing: -0.02em; text-decoration: none; font-variation-settings: "opsz" 40; color: var(--ink); border-bottom: 2px solid var(--cobalt); }
-  .contact .big:hover { color: var(--cobalt); }
-  .contact .lines { margin-top: 22px; display: flex; gap: 26px; flex-wrap: wrap; color: var(--graphite); font-size: 15px; }
+  .contact { border-top: 1px solid var(--hair-2); }
+  .contact .grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s4); align-items: end; }
+  .contact .big { display: inline-block; margin-top: var(--s3); font-family: var(--display); font-weight: 500; font-size: clamp(24px, 3.6vw, 44px); letter-spacing: -0.02em; text-decoration: none; font-variation-settings: "opsz" 48, "SOFT" 30; border-bottom: 2px solid var(--accent); padding-bottom: 2px; overflow-wrap: anywhere; }
+  .contact .big:hover { color: var(--accent); }
+  .contact .lines { display: grid; gap: 10px; font-size: 15px; }
+  .contact .lines a { text-decoration: none; border-bottom: 1.5px solid var(--hair-2); width: fit-content; }
+  .contact .lines a:hover { border-color: var(--accent); }
+  .contact .lines .k { color: var(--graphite); font-size: 13px; display: block; }
+  @media (max-width: 760px) { .contact .grid { grid-template-columns: 1fr; } }
 
-  footer { border-top: 1px solid var(--rule-2); padding: 20px 0 max(24px, calc(env(safe-area-inset-bottom) + 18px)); font-size: 13px; color: var(--graphite); }
+  footer { border-top: 1px solid var(--hair-2); padding: 22px 0 max(26px, calc(env(safe-area-inset-bottom) + 18px)); font-size: 13px; color: var(--graphite); }
   footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .st .pend::after { animation: none; content: "..."; }
-  }
-  @media print {
-    .check-head button { display: none; }
-    a { color: inherit; }
+    .stack a, .sheet .shot img { transition: none !important; }
+    .cell.pend .st .d { animation: none; }
   }
 </style>
 </head>
 <body>
 <a class="skip" href="#work">Skip to the work</a>
 
-<header class="titleblock">
-  <div class="wrap">
-    <div class="grid">
-      <div class="tb name">
-        <span class="k">Muhammad Ahmed Mufti</span>
-        <span class="v">Software engineer, full stack and AI</span>
-        <div class="nav"><a href="#work">Work</a><a href="#research">Research</a><a href="#path">Path</a><a href="#contact">Contact</a></div>
-      </div>
-      <div class="tb">
-        <span class="k">Based in</span>
-        <span class="v">Islamabad, Pakistan</span>
-        <span class="k" style="margin-top:8px">Time zone</span>
-        <span class="v">UTC+5</span>
-      </div>
-      <div class="tb">
-        <span class="k">Status</span>
-        <span class="v"><span class="dot" aria-hidden="true"></span>Open to roles, on site or remote</span>
-        <span class="k" style="margin-top:8px">Graduated</span>
-        <span class="v">FAST-NUCES, June 2026</span>
-      </div>
-      <div class="tb">
-        <span class="k">Find me</span>
-        <span class="v"><a href="https://github.com/AhmedMufti" target="_blank" rel="noopener">github.com/AhmedMufti</a></span>
-        <span class="v"><a href="https://linkedin.com/in/m-ahmed-m-26491913a" target="_blank" rel="noopener">LinkedIn profile</a></span>
-        <span class="v"><a href="mailto:m.ahmed.mufti@gmail.com">m.ahmed.mufti@gmail.com</a></span>
-      </div>
-    </div>
+<header class="top">
+  <div class="wrap row">
+    <a class="mark" href="#top"><span class="sq" aria-hidden="true"></span>Ahmed Mufti</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#research">Research</a>
+      <a href="#more">Also built</a>
+      <a href="#path">Path</a>
+    </nav>
+    <a class="btn fill cta" href="mailto:m.ahmed.mufti@gmail.com">Email me</a>
   </div>
 </header>
 
-<main>
+<main id="top">
+
   <section class="hero">
     <div class="wrap">
-      <h1>Six products live in production. <em>Every number on this page was measured.</em></h1>
-      <p class="lede">I build web products end to end, from the schema to the pixel, and I measure what I ship. <b>React, Next.js, Node, FastAPI, PostgreSQL</b> for the products below; <b>PyTorch and LangChain</b> for the AI work; a sole-author research study on where small language models fail. Everything here is linked to the real thing.</p>
+      <div class="grid">
+        <div>
+          <span class="stamp"><span class="d" aria-hidden="true"></span>Verified 15 Sep 2026</span>
+          <h1>Six products live.<br>Every number <i>measured.</i></h1>
+          <p class="lede">I'm <b>Muhammad Ahmed Mufti</b>, a full-stack and AI engineer in Islamabad. I build web products from the schema to the pixel, then measure what I shipped. Below: six sites you can open right now, one research study, and the code behind most of it.</p>
+          <div class="actions">
+            <a class="btn fill" href="#work">See the six products</a>
+            <a class="btn line" href="https://github.com/AhmedMufti" target="_blank" rel="noopener">GitHub</a>
+          </div>
+          <div class="meta">
+            <span><b>FAST-NUCES</b>, BSc CS 2026</span>
+            <span><b>CGPA 3.6</b>, Dean's List four semesters</span>
+            <span><b>Open to roles</b>, on site or remote</span>
+          </div>
+        </div>
 
-      <div class="check" id="check">
-        <div class="check-head">
+        <div class="stack-wrap" aria-hidden="true">
+          <div class="stack">
+            <a href="https://pixel-perfect-figma-designs-to.onrender.com/" target="_blank" rel="noopener" tabindex="-1" style="--rot:7deg;--tx:6%;--ty:-6%;--rot2:14deg;--tx2:18%;--ty2:-16%"><div class="sheet-img"><img src="previews/figma.jpg" alt="" loading="lazy"><span class="tag">Figma to code</span></div></a>
+            <a href="https://hitechskyenergy-website-redesign.onrender.com/" target="_blank" rel="noopener" tabindex="-1" style="--rot:-6deg;--tx:-5%;--ty:-4%;--rot2:-13deg;--tx2:-16%;--ty2:-12%"><div class="sheet-img"><img src="previews/hitech.jpg" alt="" loading="lazy"><span class="tag">HiTech Sky Energy</span></div></a>
+            <a href="https://earnest-praline-2c72a6.netlify.app/" target="_blank" rel="noopener" tabindex="-1" style="--rot:4deg;--tx:4%;--ty:2%;--rot2:9deg;--tx2:12%;--ty2:8%"><div class="sheet-img"><img src="previews/legal.jpg" alt="" loading="lazy"><span class="tag">Pakistan Legal Nexus</span></div></a>
+            <a href="https://indonesia-compliance.vercel.app/" target="_blank" rel="noopener" tabindex="-1" style="--rot:-3deg;--tx:-3%;--ty:3%;--rot2:-7deg;--tx2:-10%;--ty2:12%"><div class="sheet-img"><img src="previews/indonesia.jpg" alt="" loading="lazy"><span class="tag">IndonesiaCompliance</span></div></a>
+            <a href="https://med-scholar-ten.vercel.app/" target="_blank" rel="noopener" tabindex="-1" style="--rot:2deg;--tx:1%;--ty:1%;--rot2:4deg;--tx2:4%;--ty2:4%"><div class="sheet-img"><img src="previews/medscholar.jpg" alt="" loading="lazy"><span class="tag">MedScholar</span></div></a>
+            <a href="https://reccs.co/" target="_blank" rel="noopener" tabindex="-1" style="--rot:-1deg;--tx:0;--ty:0;--rot2:0deg;--tx2:0;--ty2:0"><div class="sheet-img"><img src="previews/reccs.jpg" alt="" loading="eager" fetchpriority="high"><span class="tag">reccs.co</span></div></a>
+          </div>
+          <div class="stack-cap"><span>Six sheets, one per product</span><span>hover to fan them out</span></div>
+        </div>
+      </div>
+
+      <div class="strip" aria-label="Live products">
+        <a href="https://reccs.co/" target="_blank" rel="noopener"><div class="sheet-img"><img src="previews/reccs.jpg" alt="reccs.co" loading="lazy"></div><div class="cap">reccs.co</div></a>
+        <a href="https://med-scholar-ten.vercel.app/" target="_blank" rel="noopener"><div class="sheet-img"><img src="previews/medscholar.jpg" alt="MedScholar" loading="lazy"></div><div class="cap">MedScholar</div></a>
+        <a href="https://indonesia-compliance.vercel.app/" target="_blank" rel="noopener"><div class="sheet-img"><img src="previews/indonesia.jpg" alt="IndonesiaCompliance" loading="lazy"></div><div class="cap">IndonesiaCompliance</div></a>
+        <a href="https://earnest-praline-2c72a6.netlify.app/" target="_blank" rel="noopener"><div class="sheet-img"><img src="previews/legal.jpg" alt="Pakistan Legal Nexus" loading="lazy"></div><div class="cap">Pakistan Legal Nexus</div></a>
+        <a href="https://hitechskyenergy-website-redesign.onrender.com/" target="_blank" rel="noopener"><div class="sheet-img"><img src="previews/hitech.jpg" alt="HiTech Sky Energy" loading="lazy"></div><div class="cap">HiTech Sky Energy</div></a>
+        <a href="https://pixel-perfect-figma-designs-to.onrender.com/" target="_blank" rel="noopener"><div class="sheet-img"><img src="previews/figma.jpg" alt="Figma to code" loading="lazy"></div><div class="cap">Figma to code</div></a>
+      </div>
+
+      <div class="board" id="check">
+        <div class="board-head">
           <div>
             <h2>Are they up right now?</h2>
-            <p>Your browser is pinging each site as you read this. The time is a round trip from your device, so it depends on where you are.</p>
+            <p>Your browser pings each site as you read this. Round trip from your device, so it depends on where you are.</p>
           </div>
           <button type="button" id="recheck">Check again</button>
         </div>
-        <table class="sites" aria-live="polite">
-          <thead><tr><th>Product</th><th class="host">Host</th><th>Status</th><th>Round trip</th></tr></thead>
-          <tbody id="sites"></tbody>
-        </table>
-        <p class="check-foot" id="checkfoot">Waiting to start.</p>
+        <div class="cells" id="cells" aria-live="polite"></div>
+        <div class="board-foot" id="checkfoot">Waiting to start.</div>
       </div>
     </div>
   </section>
 
   <section id="work">
     <div class="wrap">
-      <h2 class="sec">The work, one sheet per product.</h2>
-      <p class="sec-intro">Each sheet shows the site as it looks today, what I built, and the figure it earned. Open any of them; they are all serving real users.</p>
+      <div class="sec-head">
+        <div><span class="stamp flat">Sheets 01 to 06</span><h2>The work, one sheet per product.</h2></div>
+        <p>Each sheet shows the site as it looks today, the figure it earned, and exactly what I built. All six are serving real users.</p>
+      </div>
 
       <div class="sheets">
 
-        <article class="sheet">
-          <figure>
-            <a class="framelink" href="https://reccs.co/" target="_blank" rel="noopener"><div class="frame"><img src="previews/reccs.jpg" width="1200" height="750" alt="reccs.co home page: a search box over the headline Skip the sponsored results, trust real people" loading="eager" decoding="async"></div></a>
-            <figcaption><span>reccs.co, home page</span><span>captured 15 Sep 2026</span></figcaption>
-          </figure>
-          <div>
-            <div class="sheetno">Sheet 1 of 6</div>
+        <article class="sheet" id="reccs">
+          <div class="shot">
+            <a href="https://reccs.co/" target="_blank" rel="noopener"><img src="previews/reccs.jpg" width="1200" height="900" alt="reccs.co home page: a search box under the headline Skip the sponsored results, trust real people" loading="lazy" decoding="async"></a>
+            <div class="capbar"><span>reccs.co</span><span>captured 15 Sep 2026</span></div>
+          </div>
+          <div class="body">
+            <div class="no"><span>Sheet 01 / 06</span><span class="live"><span class="d"></span>Live</span></div>
             <h3><a href="https://reccs.co/" target="_blank" rel="noopener">reccs.co</a></h3>
-            <p class="about">Product recommendations drawn from what Reddit actually says. A fine-tuned RoBERTa model scores every mention as positive, negative, or neutral, and products are ranked by the share of owners who recommend them. No sponsored results.</p>
-            <table class="spec">
-              <tr><th>Figure</th><td><span class="fig">14.1M<small>comments classified, 937 subreddits</small></span></td></tr>
-              <tr><th>I built</th><td>The classification pipeline on Modal GPU workers, the FastAPI and DuckDB API, and the React front end</td></tr>
-              <tr><th>Stack</th><td>React, FastAPI, DuckDB, fine-tuned RoBERTa, Modal (A100 and T4)</td></tr>
-              <tr><th>Links</th><td><a href="https://reccs.co/" target="_blank" rel="noopener">Open the site</a></td></tr>
-            </table>
+            <div class="fig"><span class="num">14.1M</span><span class="lab">Reddit comments classified across 937 subreddits</span></div>
+            <p class="about">Product recommendations drawn from what Reddit actually says. A fine-tuned RoBERTa model scores every mention as positive, negative, or neutral; products are ranked by the share of owners who recommend them. No sponsored results.</p>
+            <dl>
+              <dt>I built</dt><dd>The classification pipeline on Modal GPU workers, the FastAPI and DuckDB API, and the React front end</dd>
+              <dt>Stack</dt><dd>React, FastAPI, DuckDB, RoBERTa, Modal (A100 and T4)</dd>
+            </dl>
+            <div class="links"><a class="go" href="https://reccs.co/" target="_blank" rel="noopener">Open reccs.co</a></div>
           </div>
         </article>
 
-        <article class="sheet">
-          <figure>
-            <a class="framelink" href="https://med-scholar-ten.vercel.app/" target="_blank" rel="noopener"><div class="frame"><img src="previews/medscholar.jpg" width="1200" height="750" alt="MedScholar sign-in page with the headline Evidence at the speed of inquiry" loading="lazy" decoding="async"></div></a>
-            <figcaption><span>MedScholar, sign-in</span><span>captured 15 Sep 2026</span></figcaption>
-          </figure>
-          <div>
-            <div class="sheetno">Sheet 2 of 6</div>
+        <article class="sheet" id="medscholar">
+          <div class="shot">
+            <a href="https://med-scholar-ten.vercel.app/" target="_blank" rel="noopener"><img src="previews/medscholar.jpg" width="1200" height="900" alt="MedScholar sign-in page with the headline Evidence at the speed of inquiry" loading="lazy" decoding="async"></a>
+            <div class="capbar"><span>med-scholar-ten.vercel.app</span><span>captured 15 Sep 2026</span></div>
+          </div>
+          <div class="body">
+            <div class="no"><span>Sheet 02 / 06</span><span class="live"><span class="d"></span>Live</span></div>
             <h3><a href="https://med-scholar-ten.vercel.app/" target="_blank" rel="noopener">MedScholar</a></h3>
+            <div class="fig"><span class="num">20K</span><span class="lab">indexed medicines, 79 clinical calculators, every answer cited</span></div>
             <p class="about">A research workspace for clinicians and students. Questions are answered from PubMed literature with cited, evidence-graded sources; a FAISS index and strict grounding rules keep the model from answering beyond what the sources say. My final year project.</p>
-            <table class="spec">
-              <tr><th>Figure</th><td><span class="fig">PubMed<small>every answer cited to a source</small></span></td></tr>
-              <tr><th>I built</th><td>The retrieval-augmented backend, PostgreSQL schema, and React front end</td></tr>
-              <tr><th>Stack</th><td>React, FastAPI, PostgreSQL, LangChain, FAISS</td></tr>
-              <tr><th>Links</th><td><a href="https://med-scholar-ten.vercel.app/" target="_blank" rel="noopener">Open the site</a><a href="https://github.com/AhmedMufti/MedScholar" target="_blank" rel="noopener">Code</a></td></tr>
-            </table>
+            <dl>
+              <dt>I built</dt><dd>The retrieval-augmented backend, the PostgreSQL schema, and the React front end</dd>
+              <dt>Stack</dt><dd>React, FastAPI, PostgreSQL, LangChain, FAISS</dd>
+            </dl>
+            <div class="links"><a class="go" href="https://med-scholar-ten.vercel.app/" target="_blank" rel="noopener">Open MedScholar</a><a href="https://github.com/AhmedMufti/MedScholar" target="_blank" rel="noopener">Code</a></div>
           </div>
         </article>
 
-        <article class="sheet">
-          <figure>
-            <a class="framelink" href="https://indonesia-compliance.vercel.app/" target="_blank" rel="noopener"><div class="frame"><img src="previews/indonesia.jpg" width="1200" height="750" alt="IndonesiaCompliance home page with a KBLI lookup box and the headline Know exactly what you need before you spend a dollar" loading="lazy" decoding="async"></div></a>
-            <figcaption><span>IndonesiaCompliance, home page</span><span>captured 15 Sep 2026</span></figcaption>
-          </figure>
-          <div>
-            <div class="sheetno">Sheet 3 of 6</div>
+        <article class="sheet" id="indonesia">
+          <div class="shot">
+            <a href="https://indonesia-compliance.vercel.app/" target="_blank" rel="noopener"><img src="previews/indonesia.jpg" width="1200" height="900" alt="IndonesiaCompliance home page with a KBLI lookup box and the headline Know exactly what you need before you spend a dollar" loading="lazy" decoding="async"></a>
+            <div class="capbar"><span>indonesia-compliance.vercel.app</span><span>captured 15 Sep 2026</span></div>
+          </div>
+          <div class="body">
+            <div class="no"><span>Sheet 03 / 06</span><span class="live"><span class="d"></span>Live</span></div>
             <h3><a href="https://indonesia-compliance.vercel.app/" target="_blank" rel="noopener">IndonesiaCompliance</a></h3>
+            <div class="fig"><span class="num">1,000+</span><span class="lab">compliance roadmaps generated in production</span></div>
             <p class="about">For foreign entrepreneurs setting up in Indonesia. Search a business activity and get the KBLI code, foreign ownership limit, required licenses, realistic costs, and a step-by-step roadmap, specific to your nationality and location.</p>
-            <table class="spec">
-              <tr><th>Figure</th><td><span class="fig">1,000+<small>compliance roadmaps generated</small></span></td></tr>
-              <tr><th>I built</th><td>The Next.js front end, the roadmap generator, and the PostgreSQL-backed API</td></tr>
-              <tr><th>Stack</th><td>Next.js, Node.js, PostgreSQL, Vercel</td></tr>
-              <tr><th>Links</th><td><a href="https://indonesia-compliance.vercel.app/" target="_blank" rel="noopener">Open the site</a></td></tr>
-            </table>
+            <dl>
+              <dt>I built</dt><dd>The Next.js front end, the roadmap generator, and the PostgreSQL-backed API</dd>
+              <dt>Stack</dt><dd>Next.js, Node.js, PostgreSQL, Vercel</dd>
+            </dl>
+            <div class="links"><a class="go" href="https://indonesia-compliance.vercel.app/" target="_blank" rel="noopener">Open IndonesiaCompliance</a></div>
           </div>
         </article>
 
-        <article class="sheet">
-          <figure>
-            <a class="framelink" href="https://earnest-praline-2c72a6.netlify.app/" target="_blank" rel="noopener"><div class="frame"><img src="previews/legal.jpg" width="1200" height="750" alt="Pakistan Legal Nexus landing page showing 83 API endpoints, 16 database models and 9 languages" loading="lazy" decoding="async"></div></a>
-            <figcaption><span>Pakistan Legal Nexus, landing</span><span>captured 15 Sep 2026</span></figcaption>
-          </figure>
-          <div>
-            <div class="sheetno">Sheet 4 of 6</div>
+        <article class="sheet" id="legal">
+          <div class="shot">
+            <a href="https://earnest-praline-2c72a6.netlify.app/" target="_blank" rel="noopener"><img src="previews/legal.jpg" width="1200" height="900" alt="Pakistan Legal Nexus landing page showing 83 API endpoints, 16 database models and 9 languages" loading="lazy" decoding="async"></a>
+            <div class="capbar"><span>earnest-praline-2c72a6.netlify.app</span><span>captured 15 Sep 2026</span></div>
+          </div>
+          <div class="body">
+            <div class="no"><span>Sheet 04 / 06</span><span class="live"><span class="d"></span>Live</span></div>
             <h3><a href="https://earnest-praline-2c72a6.netlify.app/" target="_blank" rel="noopener">Pakistan Legal Nexus</a></h3>
-            <p class="about">One platform for lawyers, litigants, and clerks: case files with document upload, a lawyer directory, a marketplace, community chat rooms, and legal research, in English and Urdu. Role-based access keeps each user inside their own lane.</p>
-            <table class="spec">
-              <tr><th>Figure</th><td><span class="fig">83<small>API endpoints over 16 models</small></span></td></tr>
-              <tr><th>I built</th><td>The MERN application end to end: Express API with JWT and RBAC, Socket.io chat, React front end with Redux Toolkit and i18next</td></tr>
-              <tr><th>Stack</th><td>React, Redux Toolkit, Node.js, Express, MongoDB, Socket.io, JWT, Multer</td></tr>
-              <tr><th>Links</th><td><a href="https://earnest-praline-2c72a6.netlify.app/" target="_blank" rel="noopener">Open the site</a><a href="https://github.com/AhmedMufti/Lawyer-Workspace-MERN-Stack-" target="_blank" rel="noopener">Code</a></td></tr>
-            </table>
+            <div class="fig"><span class="num">83</span><span class="lab">API endpoints over 16 models, in English and Urdu</span></div>
+            <p class="about">One platform for lawyers, litigants, and clerks: case files with document upload, a lawyer directory, a marketplace, community chat rooms, and legal research. Role-based access keeps each user inside their own lane.</p>
+            <dl>
+              <dt>I built</dt><dd>The MERN application end to end: Express API with JWT and role-based access, Socket.io chat, React front end with Redux Toolkit and i18next</dd>
+              <dt>Stack</dt><dd>React, Redux Toolkit, Node.js, Express, MongoDB, Socket.io, JWT, Multer</dd>
+            </dl>
+            <div class="links"><a class="go" href="https://earnest-praline-2c72a6.netlify.app/" target="_blank" rel="noopener">Open the platform</a><a href="https://github.com/AhmedMufti/Lawyer-Workspace-MERN-Stack-" target="_blank" rel="noopener">Code</a></div>
           </div>
         </article>
 
-        <article class="sheet">
-          <figure>
-            <a class="framelink" href="https://hitechskyenergy-website-redesign.onrender.com/" target="_blank" rel="noopener"><div class="frame"><img src="previews/hitech.jpg" width="1200" height="750" alt="HiTech Sky Energy home page with a solar rooftop hero and the headline Powering a sustainable future" loading="lazy" decoding="async"></div></a>
-            <figcaption><span>HiTech Sky Energy, home page</span><span>captured 15 Sep 2026</span></figcaption>
-          </figure>
-          <div>
-            <div class="sheetno">Sheet 5 of 6</div>
+        <article class="sheet" id="hitech">
+          <div class="shot">
+            <a href="https://hitechskyenergy-website-redesign.onrender.com/" target="_blank" rel="noopener"><img src="previews/hitech.jpg" width="1200" height="900" alt="HiTech Sky Energy home page with a solar rooftop hero and the headline Powering a sustainable future" loading="lazy" decoding="async"></a>
+            <div class="capbar"><span>hitechskyenergy-website-redesign.onrender.com</span><span>captured 15 Sep 2026</span></div>
+          </div>
+          <div class="body">
+            <div class="no"><span>Sheet 05 / 06</span><span class="live"><span class="d"></span>Live</span></div>
             <h3><a href="https://hitechskyenergy-website-redesign.onrender.com/" target="_blank" rel="noopener">HiTech Sky Energy</a></h3>
+            <div class="fig"><span class="num word">Full redesign</span><span class="lab">of a company site, from brief to deployment</span></div>
             <p class="about">A full redesign of a solar company's website: services, projects, and a quote flow, rebuilt as a responsive static site that loads fast on a phone. Free hosting, so the first visit can take a moment to wake.</p>
-            <table class="spec">
-              <tr><th>Figure</th><td><span class="fig">Redesign<small>from the existing site to a new one, end to end</small></span></td></tr>
-              <tr><th>I built</th><td>Everything: layout, responsive behaviour, and deployment</td></tr>
-              <tr><th>Stack</th><td>HTML, CSS, Bootstrap 5, JavaScript</td></tr>
-              <tr><th>Links</th><td><a href="https://hitechskyenergy-website-redesign.onrender.com/" target="_blank" rel="noopener">Open the site</a><a href="https://github.com/AhmedMufti/HiTechSkyEnergy-website-redesign" target="_blank" rel="noopener">Code</a></td></tr>
-            </table>
+            <dl>
+              <dt>I built</dt><dd>Everything: layout, responsive behaviour, and deployment</dd>
+              <dt>Stack</dt><dd>HTML, CSS, Bootstrap 5, JavaScript</dd>
+            </dl>
+            <div class="links"><a class="go" href="https://hitechskyenergy-website-redesign.onrender.com/" target="_blank" rel="noopener">Open the site</a><a href="https://github.com/AhmedMufti/HiTechSkyEnergy-website-redesign" target="_blank" rel="noopener">Code</a></div>
           </div>
         </article>
 
-        <article class="sheet">
-          <figure>
-            <a class="framelink" href="https://pixel-perfect-figma-designs-to.onrender.com/" target="_blank" rel="noopener"><div class="frame"><img src="previews/figma.jpg" width="1200" height="750" alt="Landing page of a five-page site built from Figma designs, showing a full-bleed photograph with the organisation's emblem" loading="lazy" decoding="async"></div></a>
-            <figcaption><span>Figma to code, landing page</span><span>captured 15 Sep 2026</span></figcaption>
-          </figure>
-          <div>
-            <div class="sheetno">Sheet 6 of 6</div>
+        <article class="sheet" id="figma">
+          <div class="shot">
+            <a href="https://pixel-perfect-figma-designs-to.onrender.com/" target="_blank" rel="noopener"><img src="previews/figma.jpg" width="1200" height="900" alt="Landing page of a five-page site built from Figma designs, a full-bleed photograph with the organisation's emblem" loading="lazy" decoding="async"></a>
+            <div class="capbar"><span>pixel-perfect-figma-designs-to.onrender.com</span><span>captured 15 Sep 2026</span></div>
+          </div>
+          <div class="body">
+            <div class="no"><span>Sheet 06 / 06</span><span class="live"><span class="d"></span>Live</span></div>
             <h3><a href="https://pixel-perfect-figma-designs-to.onrender.com/" target="_blank" rel="noopener">Figma designs to a working site</a></h3>
+            <div class="fig"><span class="num">5</span><span class="lab">pages built to the supplied designs, responsive on every screen</span></div>
             <p class="about">A client supplied Figma designs; I shipped the site. Landing page, home page, a news section, and two content pages, matched to the designs and responsive across phone, tablet, and desktop.</p>
-            <table class="spec">
-              <tr><th>Figure</th><td><span class="fig">5<small>pages, built to the designs</small></span></td></tr>
-              <tr><th>I built</th><td>Everything from the Figma files to the deployed site</td></tr>
-              <tr><th>Stack</th><td>HTML, CSS, JavaScript</td></tr>
-              <tr><th>Links</th><td><a href="https://pixel-perfect-figma-designs-to.onrender.com/" target="_blank" rel="noopener">Open the site</a><a href="https://github.com/AhmedMufti/Pixel-perfect-Figma-designs-to-Responsive-website" target="_blank" rel="noopener">Code</a></td></tr>
-            </table>
+            <dl>
+              <dt>I built</dt><dd>Everything from the Figma files to the deployed site</dd>
+              <dt>Stack</dt><dd>HTML, CSS, JavaScript</dd>
+            </dl>
+            <div class="links"><a class="go" href="https://pixel-perfect-figma-designs-to.onrender.com/" target="_blank" rel="noopener">Open the site</a><a href="https://github.com/AhmedMufti/Pixel-perfect-Figma-designs-to-Responsive-website" target="_blank" rel="noopener">Code</a></div>
           </div>
         </article>
 
@@ -440,89 +494,92 @@
 
   <section id="research">
     <div class="wrap">
-      <h2 class="sec">Research: where small language models fail.</h2>
+      <div class="sec-head">
+        <div><span class="stamp flat">Sole author, 2026</span><h2>Where small language models fail.</h2></div>
+        <p>An independent empirical study, with the harness, the taxonomy, and the statistics all built by me. Code is public; the manuscript is in LNCS format with a preprint in preparation.</p>
+      </div>
       <div class="plate">
-        <div>
+        <div class="text">
           <h3>Evaluating the Efficacy and Failure Modes of Small Language Models in Agentic RAG Workflows for Financial Document Reasoning</h3>
-          <p class="meta">Sole author. Independent research, FAST-NUCES, 2026. Manuscript in Springer LNCS format; arXiv preprint in preparation.</p>
-          <p class="abs">Analysts are being offered small, local language models as a private alternative to frontier APIs, but the field reports headline accuracy without much insight into what goes wrong underneath. I evaluated four contemporary small models (Qwen3-1.7B, SmolLM3-3B, Phi-4-mini, Llama-3.1-8B) and a 117B open-weight ceiling on FinanceBench, under plain retrieval-augmented generation and an agentic ReAct loop.</p>
-          <p class="abs">I built the whole harness on Modal serverless GPUs: hybrid BM25 and BGE retrieval with a cross-encoder reranker, the model-serving classes, the agent loop, and a two-judge adjudication pipeline using 70B-class models from two different vendors. Every accuracy is reported with a Wilson 95% confidence interval. Two findings stood out: the agentic loop lowered accuracy for every model, and the dominant failure was numerical error, not retrieval, even when the right numbers were in the context.</p>
-          <p class="links"><a href="https://github.com/AhmedMufti/slm-agentic-financial-rag" target="_blank" rel="noopener">Code, released under MIT</a></p>
+          <p class="meta">Independent research, FAST-NUCES, Islamabad. Springer LNCS format, arXiv preprint in preparation.</p>
+          <p class="abs">Analysts are offered small, local language models as a private alternative to frontier APIs, but the field reports headline accuracy without much insight into what goes wrong underneath. I evaluated four contemporary small models (Qwen3-1.7B, SmolLM3-3B, Phi-4-mini, Llama-3.1-8B) and a 117B open-weight ceiling on FinanceBench, under plain retrieval-augmented generation and an agentic ReAct loop.</p>
+          <p class="abs">I built the whole harness on Modal serverless GPUs: hybrid BM25 and BGE retrieval with a cross-encoder reranker, the model-serving classes, the agent loop, and a two-judge adjudication pipeline using 70B-class models from two different vendors. Every accuracy carries a Wilson 95% confidence interval. Two findings stood out: the agentic loop lowered accuracy for every model, and the dominant failure was numerical error, not retrieval, even when the right numbers were in the context.</p>
+          <div class="links"><a href="https://github.com/AhmedMufti/slm-agentic-financial-rag" target="_blank" rel="noopener">Code, MIT licence</a></div>
         </div>
-        <table class="results">
-          <caption>By the numbers</caption>
-          <tr><th>Models evaluated</th><td><b>4</b> small models plus a 117B ceiling</td></tr>
-          <tr><th>Experimental cells</th><td><b>1,499</b> model, pipeline, and question combinations</td></tr>
-          <tr><th>Judge agreement</th><td><b>0.65</b> Cohen's kappa over 1,498 dual-judged cells</td></tr>
-          <tr><th>Failure taxonomy</th><td><b>10</b> categories, 6 judged and 4 deterministic</td></tr>
-          <tr><th>Compute spend</th><td><b>Under $25</b> on Modal and Groq</td></tr>
-          <tr><th>Manuscript</th><td><b>5,700</b> words, 29 citations, LNCS format</td></tr>
-        </table>
+        <div class="stats">
+          <div class="stat"><div class="num">4 + 1</div><div class="lab">small models evaluated, plus a 117B ceiling</div></div>
+          <div class="stat"><div class="num">1,499</div><div class="lab">experimental cells: model, pipeline, question</div></div>
+          <div class="stat"><div class="num">0.65</div><div class="lab">Cohen's kappa between two cross-vendor 70B judges</div></div>
+          <div class="stat"><div class="num">10</div><div class="lab">failure categories, six judged and four deterministic</div></div>
+          <div class="stat"><div class="num">&lt; $25</div><div class="lab">total compute on Modal and Groq</div></div>
+          <div class="stat"><div class="num">5,700</div><div class="lab">words and 29 citations in the manuscript</div></div>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="more">
     <div class="wrap">
-      <h2 class="sec">Also built.</h2>
-      <p class="sec-intro">Source is public where it can be. Three of these live on my machine for now and are described exactly as they were verified.</p>
-      <table class="list">
-        <thead><tr><th>Project</th><th>What it is</th><th>Proof</th></tr></thead>
-        <tbody>
-          <tr><td class="n"><a href="https://github.com/AhmedMufti/agentic-film-studio" target="_blank" rel="noopener">Agentic Film Studio</a></td><td class="w">One prompt becomes a lip-synced animated short. Five LangGraph agents write, voice, render with consistent characters (PuLID, Stable Video Diffusion), and sync mouths with Wav2Lip on Modal. Every action goes through one MCP tool layer; an edit agent can undo any step.</td><td class="p"><a href="https://github.com/AhmedMufti/agentic-film-studio" target="_blank" rel="noopener">Code</a></td></tr>
-          <tr><td class="n">Order pipeline over Kafka</td><td class="w">Two Spring Boot services. Orders are published to a three-partition topic; inventory consumes idempotently and dead-letters bad events. Verified rebalancing across instances, replay without reprocessing, and fan-out to a second group, with Testcontainers integration tests.</td><td class="p"><span class="priv">Private, ask me</span></td></tr>
-          <tr><td class="n">Herd Monitor API</td><td class="w">A production-style Express and Sequelize REST API: JWT auth, role and row-level authorization, transactions with row locking, rate limiting, OpenAPI docs, Docker, and 44 passing integration tests.</td><td class="p"><span class="priv">Private, ask me</span></td></tr>
-          <tr><td class="n">AFTERHOURS storefront</td><td class="w">A headless Shopify storefront in Next.js 14: live drop countdown, persistent cart with real stock, and checkout handed to Shopify. Mobile Lighthouse performance 90 to 93, CLS 0.067, measured after the image and font work.</td><td class="p"><span class="priv">Client demo</span></td></tr>
-          <tr><td class="n"><a href="https://github.com/AhmedMufti/cyclegan-transformer-vit" target="_blank" rel="noopener">From-scratch deep learning</a></td><td class="w">CycleGAN face-to-sketch translation, an English-to-Urdu Transformer against mBART-50, and a ViT versus CNN study on CIFAR-10 (92.8% CNN, 82.2% scratch ViT, 97.2% pretrained ViT-tiny). Plus an RNN translator, a denoising autoencoder, and a VAE in a second repo.</td><td class="p"><a href="https://github.com/AhmedMufti/cyclegan-transformer-vit" target="_blank" rel="noopener">Code</a></td></tr>
-          <tr><td class="n"><a href="https://github.com/AhmedMufti/ai-content-generator" target="_blank" rel="noopener">Fluxel Studio</a></td><td class="w">A pixel-faithful AI content-generation UI in Next.js 16 and Tailwind v4. Responsive from 320 px with no horizontal scroll, dark mode without a flash, and keyboard and screen-reader support.</td><td class="p"><a href="https://github.com/AhmedMufti/ai-content-generator" target="_blank" rel="noopener">Code</a></td></tr>
-          <tr><td class="n"><a href="https://github.com/AhmedMufti/CryptoFolio" target="_blank" rel="noopener">CryptoFolio</a></td><td class="w">MERN portfolio tracker with live CoinGecko prices, virtual buy and sell, JWT auth, and Cloudinary profile uploads.</td><td class="p"><a href="https://github.com/AhmedMufti/CryptoFolio" target="_blank" rel="noopener">Code</a></td></tr>
-          <tr><td class="n"><a href="https://github.com/AhmedMufti/Secure-Chat-System" target="_blank" rel="noopener">Secure Chat System</a></td><td class="w">Client-server chat with AES-128, RSA, Diffie-Hellman key exchange, and X.509 certificates: confidentiality, integrity, authenticity, and non-repudiation.</td><td class="p"><a href="https://github.com/AhmedMufti/Secure-Chat-System" target="_blank" rel="noopener">Code</a></td></tr>
-          <tr><td class="n"><a href="https://github.com/AhmedMufti/SQL-Server-inventory-control-database" target="_blank" rel="noopener">Inventory control in T-SQL</a></td><td class="w">Trigger-driven stock ledger that blocks negative stock, with stored procedures for movements, monthly reports, and low-stock alerts.</td><td class="p"><a href="https://github.com/AhmedMufti/SQL-Server-inventory-control-database" target="_blank" rel="noopener">Code</a></td></tr>
-          <tr><td class="n"><a href="https://github.com/FaizanLiaqat/ConnectMe" target="_blank" rel="noopener">ConnectMe</a></td><td class="w">Native Android social app in Kotlin and Jetpack Compose: image posts, follows, time-limited stories, and real-time chat, on MVVM with Room over a JWT-secured REST API.</td><td class="p"><a href="https://github.com/FaizanLiaqat/ConnectMe" target="_blank" rel="noopener">Code</a></td></tr>
-        </tbody>
-      </table>
+      <div class="sec-head">
+        <div><span class="stamp flat">Source and private builds</span><h2>Also built.</h2></div>
+        <p>Public where the code can be public. Two builds live only on my machine for now and are described exactly as they were verified.</p>
+      </div>
+      <div class="rows">
+        <div class="rowi"><div class="n"><a href="https://github.com/AhmedMufti/agentic-film-studio" target="_blank" rel="noopener">Agentic Film Studio</a></div><div class="w">One prompt becomes a lip-synced animated short. Five LangGraph agents write, voice, render with consistent characters (PuLID, Stable Video Diffusion), and sync mouths with Wav2Lip on Modal. Every action goes through one MCP tool layer; an edit agent can undo any step.</div><div class="p"><a href="https://github.com/AhmedMufti/agentic-film-studio" target="_blank" rel="noopener">Code</a></div></div>
+        <div class="rowi"><div class="n">Order pipeline over Kafka</div><div class="w">Two Spring Boot services. Orders are published to a three-partition topic; inventory consumes idempotently and dead-letters bad events. Verified rebalancing across instances, replay without reprocessing, and fan-out to a second group, with Testcontainers integration tests.</div><div class="p"><span class="priv">Private, ask me</span></div></div>
+        <div class="rowi"><div class="n">AFTERHOURS storefront</div><div class="w">A headless Shopify storefront in Next.js 14: live drop countdown, persistent cart with real stock, and checkout handed to Shopify. Mobile Lighthouse performance 90 to 93 and CLS 0.067, measured after the image and font work.</div><div class="p"><span class="priv">Client demo</span></div></div>
+        <div class="rowi"><div class="n"><a href="https://github.com/AhmedMufti/cyclegan-transformer-vit" target="_blank" rel="noopener">From-scratch deep learning</a></div><div class="w">CycleGAN face-to-sketch translation, an English-to-Urdu Transformer against mBART-50, and a ViT versus CNN study on CIFAR-10 (92.8% CNN, 82.2% scratch ViT, 97.2% pretrained ViT-tiny). An RNN translator, a denoising autoencoder, and a VAE live in a second repo.</div><div class="p"><a href="https://github.com/AhmedMufti/cyclegan-transformer-vit" target="_blank" rel="noopener">Code</a></div></div>
+        <div class="rowi"><div class="n"><a href="https://github.com/AhmedMufti/ai-content-generator" target="_blank" rel="noopener">Fluxel Studio</a></div><div class="w">A pixel-faithful AI content-generation UI in Next.js 16 and Tailwind v4. Responsive from 320 px with no horizontal scroll, dark mode without a flash, keyboard and screen-reader support.</div><div class="p"><a href="https://github.com/AhmedMufti/ai-content-generator" target="_blank" rel="noopener">Code</a></div></div>
+        <div class="rowi"><div class="n"><a href="https://github.com/AhmedMufti/CryptoFolio" target="_blank" rel="noopener">CryptoFolio</a></div><div class="w">MERN portfolio tracker with live CoinGecko prices, virtual buy and sell, JWT auth, and Cloudinary profile uploads.</div><div class="p"><a href="https://github.com/AhmedMufti/CryptoFolio" target="_blank" rel="noopener">Code</a></div></div>
+        <div class="rowi"><div class="n"><a href="https://github.com/AhmedMufti/Secure-Chat-System" target="_blank" rel="noopener">Secure Chat System</a></div><div class="w">Client-server chat with AES-128, RSA, Diffie-Hellman key exchange, and X.509 certificates: confidentiality, integrity, authenticity, and non-repudiation.</div><div class="p"><a href="https://github.com/AhmedMufti/Secure-Chat-System" target="_blank" rel="noopener">Code</a></div></div>
+        <div class="rowi"><div class="n"><a href="https://github.com/AhmedMufti/SQL-Server-inventory-control-database" target="_blank" rel="noopener">Inventory control in T-SQL</a></div><div class="w">Trigger-driven stock ledger that blocks negative stock, with stored procedures for movements, monthly reports, and low-stock alerts.</div><div class="p"><a href="https://github.com/AhmedMufti/SQL-Server-inventory-control-database" target="_blank" rel="noopener">Code</a></div></div>
+        <div class="rowi"><div class="n"><a href="https://github.com/FaizanLiaqat/ConnectMe" target="_blank" rel="noopener">ConnectMe</a></div><div class="w">Native Android social app in Kotlin and Jetpack Compose: image posts, follows, time-limited stories, and real-time chat, on MVVM with Room over a JWT-secured REST API.</div><div class="p"><a href="https://github.com/FaizanLiaqat/ConnectMe" target="_blank" rel="noopener">Code</a></div></div>
+      </div>
     </div>
   </section>
 
   <section id="tools">
     <div class="wrap">
-      <h2 class="sec">What I reach for.</h2>
+      <div class="sec-head">
+        <div><span class="stamp flat">Toolbox</span><h2>What I reach for.</h2></div>
+        <p>Chosen by what the products above actually run on, not by what looks good on a list.</p>
+      </div>
       <div class="tools">
-        <dl>
-          <div><dt>Web</dt><dd>JavaScript, TypeScript, React, Next.js, Redux Toolkit, Tailwind CSS, Node.js, Express, FastAPI</dd></div>
-          <div><dt>Data</dt><dd>PostgreSQL, MongoDB, MySQL, SQL Server, DuckDB, Apache Kafka</dd></div>
-          <div><dt>AI</dt><dd>Python, PyTorch, Hugging Face Transformers, LangChain, LangGraph, FAISS, Modal serverless GPUs</dd></div>
-        </dl>
-        <dl>
-          <div><dt>Also</dt><dd>Java and Spring Boot, Kotlin and Jetpack Compose, Docker, Testcontainers, Jest, JUnit 5</dd></div>
-          <div><dt>Security</dt><dd>Penetration testing and OWASP Top 10, from an internship at Risk Associates</dd></div>
-          <div><dt>Measuring</dt><dd>Lighthouse and Core Web Vitals, LLM evaluation with judges and confidence intervals</dd></div>
-        </dl>
+        <div class="tool"><h4>Web</h4><p><b>React, Next.js, Redux Toolkit, Tailwind CSS</b> on the front; <b>Node.js, Express, FastAPI</b> behind it.</p><p>JavaScript and TypeScript, responsive and accessible by default, measured with Lighthouse.</p></div>
+        <div class="tool"><h4>Data</h4><p><b>PostgreSQL, MongoDB, MySQL, SQL Server, DuckDB</b>, and <b>Apache Kafka</b> for events.</p><p>Schema design, transactions, indexing, and the odd stored procedure when it is the right tool.</p></div>
+        <div class="tool"><h4>AI</h4><p><b>Python, PyTorch, Hugging Face, LangChain, LangGraph, FAISS</b>, run on <b>Modal</b> serverless GPUs.</p><p>Fine-tuning, RAG, agents, and evaluation with judges and confidence intervals.</p></div>
       </div>
     </div>
   </section>
 
   <section id="path">
     <div class="wrap">
-      <h2 class="sec">Where the reps came from.</h2>
-      <table class="path">
-        <tr><td class="when">Jun 2024 to now</td><td class="what"><b>Freelance software engineer</b>, Fiverr Level 1 Seller<br><span>Full-stack and machine-learning delivery for international clients, from brief to deployed product.</span></td><td class="where">Remote</td></tr>
-        <tr><td class="when">Jan 2025 to Jun 2026</td><td class="what"><b>Teaching assistant</b>, FAST-NUCES<br><span>Computer Networks, Theory of Automata, and Professional Practices in IT. Labs, assignments, and grading for over 100 students.</span></td><td class="where">Islamabad</td></tr>
-        <tr><td class="when">Jul to Aug 2025</td><td class="what"><b>Cyber security intern</b>, Risk Associates<br><span>Penetration tests and security audits on enterprise web applications; OWASP Top 10 findings.</span></td><td class="where">Islamabad</td></tr>
-        <tr><td class="when">2022 to 2026</td><td class="what"><b>BSc Computer Science</b>, FAST-NUCES<br><span>CGPA 3.59 of 4.00. Dean's List four consecutive semesters. Generative AI and Agentic AI both A+.</span></td><td class="where">Islamabad</td></tr>
-      </table>
+      <div class="sec-head">
+        <div><span class="stamp flat">2022 to now</span><h2>Where the reps came from.</h2></div>
+      </div>
+      <div class="tl">
+        <div class="tli now"><div class="when">Jun 2024 to now</div><div class="what"><b>Freelance software engineer, Fiverr Level 1 Seller</b><span>Full-stack and machine-learning delivery for international clients, from brief to deployed product. Remote.</span></div></div>
+        <div class="tli"><div class="when">Jan 2025 to Jun 2026</div><div class="what"><b>Teaching assistant, FAST-NUCES</b><span>Computer Networks, Theory of Automata, and Professional Practices in IT. Labs, assignments, and grading for over 100 students.</span></div></div>
+        <div class="tli"><div class="when">Jul to Aug 2025</div><div class="what"><b>Cyber security intern, Risk Associates</b><span>Penetration tests and security audits on enterprise web applications; OWASP Top 10 findings with remediation guidance.</span></div></div>
+        <div class="tli"><div class="when">2022 to 2026</div><div class="what"><b>BSc Computer Science, FAST-NUCES Islamabad</b><span>CGPA 3.6 of 4.00. Dean's List four consecutive semesters. Generative AI and Agentic AI both A+.</span></div></div>
+      </div>
     </div>
   </section>
 
   <section class="contact" id="contact">
     <div class="wrap">
-      <h2 class="sec">Want something built and measured?</h2>
-      <a class="big" href="mailto:m.ahmed.mufti@gmail.com">m.ahmed.mufti@gmail.com</a>
-      <div class="lines">
-        <span>+92 321 8547417</span>
-        <a href="https://github.com/AhmedMufti" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/m-ahmed-m-26491913a" target="_blank" rel="noopener">LinkedIn</a>
-        <span>Islamabad, or remote</span>
+      <div class="grid">
+        <div>
+          <span class="stamp"><span class="d" aria-hidden="true"></span>Open to roles</span>
+          <h2 style="margin-top:14px">Want something built, then measured?</h2>
+          <a class="big" href="mailto:m.ahmed.mufti@gmail.com">m.ahmed.mufti@gmail.com</a>
+        </div>
+        <div class="lines">
+          <div><span class="k">Phone</span>+92 321 8547417</div>
+          <div><span class="k">Code</span><a href="https://github.com/AhmedMufti" target="_blank" rel="noopener">github.com/AhmedMufti</a></div>
+          <div><span class="k">Profile</span><a href="https://linkedin.com/in/m-ahmed-m-26491913a" target="_blank" rel="noopener">LinkedIn</a></div>
+          <div><span class="k">Where</span>Islamabad, Pakistan, or remote</div>
+        </div>
       </div>
     </div>
   </section>
@@ -545,60 +602,52 @@
     { name: "HiTech Sky Energy", host: "hitechskyenergy-website-redesign.onrender.com", url: "https://hitechskyenergy-website-redesign.onrender.com/", free: true },
     { name: "Figma to code", host: "pixel-perfect-figma-designs-to.onrender.com", url: "https://pixel-perfect-figma-designs-to.onrender.com/", free: true }
   ];
-  var tbody = document.getElementById("sites");
+  var cells = document.getElementById("cells");
   var foot = document.getElementById("checkfoot");
   var btn = document.getElementById("recheck");
-  if (!tbody) return;
+  if (!cells) return;
 
   function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]; }); }
-
-  function row(s, i) {
-    return '<tr id="site-' + i + '">' +
-      '<td class="site"><a href="' + s.url + '" target="_blank" rel="noopener">' + esc(s.name) + '</a></td>' +
-      '<td class="host">' + esc(s.host) + '</td>' +
-      '<td class="st"><span class="pend">checking</span></td>' +
-      '<td class="ms">&nbsp;</td></tr>';
+  function cell(s, i) {
+    return '<div class="cell pend" id="c' + i + '">' +
+      '<div class="n"><a href="' + s.url + '" target="_blank" rel="noopener">' + esc(s.name) + '</a></div>' +
+      '<div class="h">' + esc(s.host) + '</div>' +
+      '<div class="ms num">&nbsp;</div>' +
+      '<div class="st"><span class="d"></span><span class="t">checking</span></div></div>';
   }
-
-  function setRow(i, statusHtml, ms) {
-    var tr = document.getElementById("site-" + i);
-    if (!tr) return;
-    tr.querySelector(".st").innerHTML = statusHtml;
-    tr.querySelector(".ms").textContent = ms;
+  function set(i, cls, text, ms) {
+    var el = document.getElementById("c" + i); if (!el) return;
+    el.className = "cell " + cls;
+    el.querySelector(".t").textContent = text;
+    el.querySelector(".ms").innerHTML = ms ? ms.toLocaleString("en-US") + "<small>ms</small>" : "&nbsp;";
   }
-
   function ping(s, i) {
     var t0 = performance.now();
     var ctl = ("AbortController" in window) ? new AbortController() : null;
-    var slow = setTimeout(function () { setRow(i, '<span class="wait">' + (s.free ? "waking up (free hosting)" : "slow") + '</span>', ""); }, 4000);
+    var slow = setTimeout(function () { set(i, "wait", s.free ? "waking up, free host" : "slow", 0); }, 4000);
     var kill = setTimeout(function () { if (ctl) ctl.abort(); }, 45000);
     var opts = { mode: "no-cors", cache: "no-store", credentials: "omit" };
     if (ctl) opts.signal = ctl.signal;
     return fetch(s.url, opts).then(function () {
-      var ms = Math.round(performance.now() - t0);
-      setRow(i, '<span class="ok">responding</span>', ms.toLocaleString("en-US") + " ms");
-      return true;
+      set(i, "ok", "responding", Math.round(performance.now() - t0)); return true;
     }).catch(function () {
-      setRow(i, '<span class="no">no reply from your network</span>', "");
-      return false;
+      set(i, "no", "no reply from your network", 0); return false;
     }).then(function (ok) { clearTimeout(slow); clearTimeout(kill); return ok; });
   }
-
   function run() {
     btn.disabled = true;
-    tbody.innerHTML = SITES.map(row).join("");
+    cells.innerHTML = SITES.map(cell).join("");
     foot.textContent = "Checking from your browser.";
     var started = new Date();
-    Promise.all(SITES.map(ping)).then(function (results) {
-      var up = results.filter(Boolean).length;
+    Promise.all(SITES.map(ping)).then(function (r) {
+      var up = r.filter(Boolean).length;
       var when = started.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
       foot.textContent = up + " of " + SITES.length + " responded, checked at " + when + " from your device. Times include your own connection; nothing is cached or faked.";
       btn.disabled = false;
     });
   }
-
   btn.addEventListener("click", run);
-  if (window.fetch) { run(); } else { foot.textContent = "Your browser cannot run the check; the links above still open each site."; }
+  if (window.fetch) { run(); } else { foot.textContent = "Your browser cannot run the check; the links still open each site."; }
 })();
 </script>
 </body>
